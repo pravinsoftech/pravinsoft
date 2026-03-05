@@ -52,7 +52,7 @@ export default function Footer() {
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             <li><Link href="/courses" style={{ color: '#71717a', fontSize: '0.9rem' }}>All Courses</Link></li>
                             <li><Link href="/teachers" style={{ color: '#71717a', fontSize: '0.9rem' }}>Our Faculty</Link></li>
-                            <li><Link href="/pricing" style={{ color: '#71717a', fontSize: '0.9rem' }}>Fee Structure</Link></li>
+                            <li><Link href="/about" style={{ color: '#71717a', fontSize: '0.9rem' }}>About Us</Link></li>
                             <li><Link href="/blog" style={{ color: '#71717a', fontSize: '0.9rem' }}>Technical Blog</Link></li>
                         </ul>
                     </div>

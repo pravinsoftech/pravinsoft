@@ -51,11 +51,7 @@ export default function Navbar() {
             <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
                 <Link href="/courses" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>Courses</Link>
                 <Link href="/teachers" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>Teachers</Link>
-                <Link href="/pricing" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
                 <Link href="/new-batches" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>New Batches</Link>
-                <Link href="/blog" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>Blog</Link>
-                <Link href="/about" style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>About</Link>
-                <Link href="/dashboard" style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '0.85rem' }} onClick={() => setIsMobileMenuOpen(false)}>Dashboard</Link>
                 <Link href="/contact" className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }} onClick={() => setIsMobileMenuOpen(false)}>Enrol Now</Link>
                 <button
                     onClick={toggleTheme}
