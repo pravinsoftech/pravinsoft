@@ -12,7 +12,7 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/myaitask/image/upload/v1760277887/programming-background-with-person-working-with-codes-computer_ipkdqa.jpg')",
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/myaitask/image/upload/v1760277887/digital-art-ai-technology-background_zag9y3.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",

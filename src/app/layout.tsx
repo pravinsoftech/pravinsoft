@@ -44,10 +44,11 @@ export default function RootLayout({
             }}
           >
             <div style={{ display: "flex", gap: "1.5rem" }}>
-              <span>📞 +91 98765 43210</span>
+              <span>📞 +91 92090 72989</span>
+              <span>📞 +91 92090 72990</span>
             </div>
 
-            <div className="hidden sm:block">✉️ info@pravinsofttech.com</div>
+            <div className="hidden sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
           </div>
           <Navbar />
           <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "36px" }}>
