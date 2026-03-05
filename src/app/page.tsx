@@ -1,65 +1,188 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main>
+
+
+      {/* Hero Section */}
+      <section
+        id="hero"
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/myaitask/image/upload/v1760277887/programming-background-with-person-working-with-codes-computer_ipkdqa.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+          overflow: "hidden",
+          paddingTop: "4rem",
+        }}
+      >
+        {/* Background Glow */}
+        <div
+          style={{
+            position: "absolute",
+            width: "600px",
+            height: "600px",
+            background:
+              "radial-gradient(circle, var(--glow-primary) 0%, transparent 70%)",
+            top: "-200px",
+            left: "-200px",
+            filter: "blur(100px)",
+            opacity: 0.3,
+          }}
+        ></div>
+
+        <div
+          style={{
+            position: "absolute",
+            width: "600px",
+            height: "600px",
+            background:
+              "radial-gradient(circle, var(--glow-secondary) 0%, transparent 70%)",
+            bottom: "-200px",
+            right: "-200px",
+            filter: "blur(100px)",
+            opacity: 0.3,
+          }}
+        ></div>
+
+        <div
+          className="container"
+          style={{ textAlign: "center", position: "relative", zIndex: 1 }}
+        >
+          <h1
+            className="gradient-text"
+            style={{
+              fontSize: "4.2rem",
+              fontWeight: 800,
+              marginBottom: "1.5rem",
+              lineHeight: 1.1,
+            }}
+          >
+            Pravinsoft Technology <br /> Learn With Modern Tech Skills
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p
+            style={{
+              fontSize: "1.25rem",
+              color: "#a1a1aa",
+              maxWidth: "720px",
+              margin: "0 auto 2.5rem",
+              lineHeight: 1.7,
+            }}
+          >
+            <strong>Pravinsoft Technologies LLP</strong>, located in the
+            prestigious IT corridor of <strong>Hinjewadi, Pune</strong>, is a
+            professional technical education institute dedicated to empowering
+            students and working professionals with practical, industry-ready
+            skills. Our structured online training programmes are designed to
+            help learners master modern technologies and stay competitive in
+            today’s rapidly evolving digital landscape.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <div
+            style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <button className="btn-primary">Explore Courses</button>
+
+            <button
+              style={{
+                background: "transparent",
+                color: "white",
+                border: "1px solid var(--glass-border)",
+                padding: "0.8rem 1.5rem",
+                borderRadius: "0.5rem",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              Learn More
+            </button>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Features / Courses Section */}
+      <section id="skills" style={{ padding: "8rem 0" }}>
+        <div className="container">
+          <h2
+            style={{
+              fontSize: "2.5rem",
+              fontWeight: 700,
+              marginBottom: "4rem",
+              textAlign: "center",
+            }}
+          >
+            Our Key Learning Advantages
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "2rem",
+            }}
+          >
+            {[
+              {
+                id: "courses",
+                title: "Industry-Relevant Courses",
+                desc: "Comprehensive training programmes covering modern technologies including Artificial Intelligence, Software Development, Data Technologies, and emerging digital platforms designed to meet current industry demands.",
+              },
+              {
+                id: "faculty",
+                title: "Expert Faculty",
+                desc: "Our instructors are experienced professionals and domain specialists who bring real-world industry knowledge into the classroom, ensuring practical learning beyond theoretical concepts.",
+              },
+              {
+                id: "online-learning",
+                title: "Flexible Online Classes",
+                desc: "All courses are delivered through structured online sessions, enabling students and working professionals from across India to learn conveniently without interrupting their academic or professional commitments.",
+              },
+              {
+                id: "affordable",
+                title: "Pocket-Friendly Fees",
+                desc: "Pravinsoft Technologies LLP believes quality technical education should be accessible to everyone. Our course fees are reasonably structured so learners can enhance their careers without financial burden.",
+              },
+              {
+                id: "career-growth",
+                title: "Career-Oriented Learning",
+                desc: "Our programmes focus on building practical skills, conceptual clarity, and project-based learning so that students can confidently apply their knowledge in professional environments.",
+              },
+              {
+                id: "location",
+                title: "Located in Pune's IT Hub",
+                desc: "Based in Hinjewadi, Pune – one of India's leading technology corridors – we stay closely aligned with industry developments and modern technological advancements.",
+              },
+            ].map((feature) => (
+              <div
+                key={feature.id}
+                className="glass"
+                style={{
+                  padding: "2.5rem",
+                  transition: "transform 0.3s ease",
+                }}
+              >
+                <h3
+                  className="gradient-text"
+                  style={{ fontSize: "1.5rem", marginBottom: "1rem" }}
+                >
+                  {feature.title}
+                </h3>
+
+                <p style={{ color: "#a1a1aa", lineHeight: "1.7" }}>
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+    </main>
   );
 }
