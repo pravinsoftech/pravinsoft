@@ -162,3 +162,20 @@ h2 {
     margin: 0 auto;
   }
 }
+
+@keyframes recentBatchSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slide-img {
+    object-fit: contain !important;
+  }
+}

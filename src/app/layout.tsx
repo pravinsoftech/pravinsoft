@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
+import RecentBatchCard from "@/components/RecentBatchCard";
 
 export const metadata: Metadata = {
   title: "Upgrade AI Skills | Pravinsoft Technologies LLP",
@@ -55,6 +57,8 @@ export default function RootLayout({
             {children}
           </div>
           <Footer />
+          <ChatWidget />
+          <RecentBatchCard />
         </ThemeProvider>
       </body>
     </html>
