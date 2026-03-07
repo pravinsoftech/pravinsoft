@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { supabase } from "@/lib/supabase";
-import type { UpcomingBatchRow } from "./types";
+import type { UpcomingBatchRaw, UpcomingBatchRow } from "./types";
 
 export const metadata: Metadata = {
     title: "New Batches | Pravinsoft AI",
@@ -51,7 +51,12 @@ export default async function NewBatchesPage() {
         .order("start_date", { ascending: true })
         .order("start_time", { ascending: true });
 
-    const upcomingBatches = (batches || []) as UpcomingBatchRow[];
+    const rawBatches = (batches || []) as UpcomingBatchRaw[];
+    const upcomingBatches: UpcomingBatchRow[] = rawBatches.map((b) => ({
+        ...b,
+        course: Array.isArray(b.course) ? b.course[0] ?? null : b.course,
+        faculty: Array.isArray(b.faculty) ? b.faculty[0] ?? null : b.faculty,
+    }));
     const fetchError = error?.message;
 
     return (

@@ -24,17 +24,23 @@ export interface Faculty {
 export interface UpcomingBatchRow {
   id: string;
   training_nature: string;
-  course_id: string;
+  course_id?: string;
   start_date: string;
   start_time: string | null;
   enrolled_students: number;
   demo_link: string | null;
   registration_link: string | null;
   payment_link: string | null;
-  faculty_id: string;
+  faculty_id?: string;
   status: string;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
   course: Course | null;
   faculty: Faculty | null;
 }
+
+/** Raw row from Supabase: relation expands return arrays */
+export type UpcomingBatchRaw = Omit<UpcomingBatchRow, 'course' | 'faculty'> & {
+  course: Course[] | Course | null;
+  faculty: Faculty[] | Faculty | null;
+};
