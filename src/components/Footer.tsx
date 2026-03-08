@@ -68,7 +68,7 @@ export default function Footer() {
                     </div>
                     <div>
                         <h5 style={{ color: 'var(--foreground)', marginBottom: '1.5rem', fontSize: '1rem' }}>Connect</h5>
-                        <p style={{ color: '#71717a', fontSize: '0.85rem', marginBottom: '1rem' }}>S50, Phase 1, Hinjewadi, Pune, Maharashtra 411057</p>
+                        <p style={{ color: '#71717a', fontSize: '0.85rem', marginBottom: '1rem' }}>Shop No. 01, Floor No 1, Near Laxmi Chowk, Laxmi Complex, Hinjawadi, Pune - 411 057</p>
                         <Link href="/contact" className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.8rem', display: 'inline-block' }}>Get in Touch</Link>
                     </div>
                 </div>

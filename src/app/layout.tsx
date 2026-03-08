@@ -25,6 +25,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        
         <ThemeProvider>
           {/* Fixed Contact Stripe */}
           <div
@@ -45,12 +46,14 @@ export default function RootLayout({
               zIndex: 9999,
             }}
           >
+            <div className="hidden sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
+
             <div style={{ display: "flex", gap: "1.5rem" }}>
               <span>📞 +91 92090 72989</span>
               <span>📞 +91 92090 72990</span>
             </div>
 
-            <div className="hidden sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
+            
           </div>
           <Navbar />
           <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "36px" }}>

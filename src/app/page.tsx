@@ -28,34 +28,34 @@ export default function Home() {
           >
             {[
               {
-                id: "courses",
-                title: "Industry-Relevant Courses",
-                desc: "Comprehensive training programmes covering modern technologies including Artificial Intelligence, Software Development, Data Technologies, and emerging digital platforms designed to meet current industry demands.",
+                id: "curriculum",
+                title: "Comprehensive Curriculum",
+                desc: "Master web development with a full-stack curriculum covering front-end, back-end, databases, and more.",
               },
               {
-                id: "faculty",
-                title: "Expert Faculty",
-                desc: "Our instructors are experienced professionals and domain specialists who bring real-world industry knowledge into the classroom, ensuring practical learning beyond theoretical concepts.",
+                id: "projects",
+                title: "Hands-On Projects",
+                desc: "Apply skills to real-world projects for practical experience and enhanced learning.",
               },
               {
-                id: "online-learning",
-                title: "Flexible Online Classes",
-                desc: "All courses are delivered through structured online sessions, enabling students and working professionals from across India to learn conveniently without interrupting their academic or professional commitments.",
+                id: "instructors",
+                title: "Expert Instructors",
+                desc: "Learn from industry experts for insights and guidance in full-stack development.",
               },
               {
-                id: "affordable",
-                title: "Pocket-Friendly Fees",
-                desc: "Pravinsoft Technologies LLP believes quality technical education should be accessible to everyone. Our course fees are reasonably structured so learners can enhance their careers without financial burden.",
+                id: "placement",
+                title: "Job Placement Assistance",
+                desc: "Access job placement assistance for career support and employer connections.",
               },
               {
-                id: "career-growth",
-                title: "Career-Oriented Learning",
-                desc: "Our programmes focus on building practical skills, conceptual clarity, and project-based learning so that students can confidently apply their knowledge in professional environments.",
+                id: "certification",
+                title: "Certification upon Completion",
+                desc: "Receive a recognized certification validating your full-stack development skills.",
               },
               {
-                id: "location",
-                title: "Located in Pune's IT Hub",
-                desc: "Based in Hinjewadi, Pune – one of India's leading technology corridors – we stay closely aligned with industry developments and modern technological advancements.",
+                id: "support",
+                title: "24/7 Support",
+                desc: "Access round-the-clock support for immediate assistance, ensuring a seamless learning journey.",
               },
             ].map((feature) => (
               <div

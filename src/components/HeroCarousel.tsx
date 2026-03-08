@@ -3,13 +3,13 @@
 import { useState, useEffect } from 'react';
 
 const HERO_IMAGES = [
-  'https://res.cloudinary.com/dt3rse8bg/image/upload/v1769875789/01FEB26-01_nardkg.jpg',
-  'https://res.cloudinary.com/dt3rse8bg/image/upload/v1769873603/15FEB26-01_rs7qwv.jpg',
-  'https://res.cloudinary.com/dt3rse8bg/image/upload/v1769873603/22FEB26-01_hpnjxm.jpg',
-  'https://res.cloudinary.com/dt3rse8bg/image/upload/v1769873601/8feb26_i8exxc.jpg',
+  'https://res.cloudinary.com/dnv6cez4g/image/upload/v1772883587/it-specialist-types-code-dual-monitors-cozy-home-office_sywlbw.jpg',
+  'https://res.cloudinary.com/dnv6cez4g/image/upload/v1772883577/teleworker-using-laptop-coding-software-developing_mvzcsv.jpg',
+  'https://res.cloudinary.com/dnv6cez4g/image/upload/v1772883500/portrait-happy-photo-editor-browsing-through-images_hrph72.jpg',
+  'https://res.cloudinary.com/dnv6cez4g/image/upload/v1772883490/male-developer-entering-binary-data-terminal-panel_af7e8f.jpg',
 ];
 
-const INTERVAL_MS = 5000;
+const INTERVAL_MS = 3000;
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
@@ -41,40 +41,50 @@ export default function HeroCarousel() {
           position: 'absolute',
           inset: 0,
           zIndex: 0,
+          overflow: 'hidden',
         }}
       >
-        {HERO_IMAGES.map((src, i) => (
-          <div
-            key={src}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              opacity: i === index ? 1 : 0,
-              transition: 'opacity 1s ease-in-out',
-              pointerEvents: 'none',
-            }}
-          >
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            transform: `translateX(-${index * 100}%)`,
+            transition: 'transform 0.9s ease-in-out',
+          }}
+        >
+          {HERO_IMAGES.map((src) => (
             <div
+              key={src}
               style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))',
-                zIndex: 1,
-              }}
-            />
-            <img
-              src={src}
-              alt=""
-              style={{
-                width: '100%',
+                minWidth: '100%',
                 height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center',
+                position: 'relative',
+                flexShrink: 0,
               }}
-              className="hero-slide-img"
-            />
-          </div>
-        ))}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))',
+                  zIndex: 1,
+                }}
+              />
+              <img
+                src={src}
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+                className="hero-slide-img"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Glow overlays */}
@@ -117,7 +127,7 @@ export default function HeroCarousel() {
             lineHeight: 1.1,
           }}
         >
-          Pravinsoft Technology <br /> Learn With Modern Tech Skills
+
         </h1>
 
         <p
@@ -129,11 +139,6 @@ export default function HeroCarousel() {
             lineHeight: 1.7,
           }}
         >
-          <strong>Pravinsoft Technologies LLP</strong>, located in the prestigious IT corridor of{' '}
-          <strong>Hinjewadi, Pune</strong>, is a professional technical education institute dedicated to empowering
-          students and working professionals with practical, industry-ready skills. Our structured online training
-          programmes are designed to help learners master modern technologies and stay competitive in today&apos;s
-          rapidly evolving digital landscape.
         </p>
 
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
