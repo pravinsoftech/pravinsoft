@@ -4,11 +4,12 @@ export type BatchStatus = 'live' | 'closed' | 'cancelled';
 
 export interface Course {
   id: string;
-  name: string;
-  slug: string | null;
-  description: string | null;
-  price_display: string | null;
-  status: string;
+  course_name: string;
+  faculty_name: string | null;
+  start_date: string | null;
+  time: string | null;
+  material_url: string | null;
+  registration_url: string | null;
 }
 
 export interface Faculty {

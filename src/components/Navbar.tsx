@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useTheme } from './ThemeProvider';
 import { useState } from 'react';
+import SearchBox from './SearchBox';
+import Image from 'next/image';
 
 type NavChild = {
     label: string;
@@ -17,7 +19,7 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
     {
-        label: 'All Courses',
+        label: 'Courses',
         href: '/courses',
         children: [
             { label: 'Full Stack Courses', href: '/courses/full-stack' },
@@ -42,7 +44,7 @@ const NAV_ITEMS: NavItem[] = [
     {
         label: 'Training',
         children: [
-            { label: 'New Batches', href: '/new-batches' },
+            { label: 'New Batches', href: '/training/new-batches' },
             { label: 'Interview Questions', href: '/interview-questions' },
             { label: 'Blog', href: '/blog' },
             { label: 'Placement Registration', href: '/placement-registration' },
@@ -77,7 +79,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className="glass navbar-container"
+            className="navbar-container"
             style={{
                 position: 'fixed',
                 top: '36px',
@@ -85,19 +87,24 @@ export default function Navbar() {
                 right: 0,
                 width: '100%',
                 zIndex: 1000,
-                padding: '0.75rem 2rem',
+                padding: '0.5rem 2rem',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                background: 'var(--nav-bg)',
-                borderRadius: 0,
-                borderLeft: 'none',
-                borderRight: 'none',
+                background: '#ffffff',
+                borderBottom: '1px solid #e2e8f0',
+                height: '70px'
             }}
         >
-            <Link href="/" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--foreground)' }} className="gradient-text">
-                Pravinsoft AI
-            </Link>
+            <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center' }}>
+                <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                    <Image src="/logo.jpg" alt="Pravinsoft Logo" width={200} height={45} style={{ objectFit: 'contain' }} priority />
+                </Link>
+            </div>
+
+            <div style={{ flex: '1 1 auto', display: 'flex', justifyContent: 'center', maxWidth: '600px', margin: '0 2rem' }} className="hidden sm-flex">
+                <SearchBox />
+            </div>
 
             {/* Hamburger Button for Mobile */}
             <button
@@ -106,17 +113,16 @@ export default function Navbar() {
                 style={{
                     background: 'none',
                     border: 'none',
-                    color: 'var(--foreground)',
+                    color: '#1e293b',
                     fontSize: '1.5rem',
                     cursor: 'pointer',
-                    display: 'none', // Hidden on desktop
                 }}
             >
                 {isMobileMenuOpen ? '✕' : '☰'}
             </button>
 
             {/* Nav Links */}
-            <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+            <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`} style={{ flex: '0 0 auto' }}>
                 {NAV_ITEMS.map((item) => {
                     if (item.children && item.children.length > 0) {
                         return (
@@ -125,8 +131,12 @@ export default function Navbar() {
                                     href={item.href || item.children[0]?.href}
                                     className="nav-parent"
                                     onClick={() => setIsMobileMenuOpen(false)}
+                                    style={{ color: '#475569', fontWeight: 600, fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '4px' }}
                                 >
                                     {item.label}
+                                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
                                 </Link>
                                 <div className="dropdown-menu">
                                     <div className="dropdown-column">
@@ -150,7 +160,7 @@ export default function Navbar() {
                         <div key={item.label} className="nav-item">
                             <Link
                                 href={item.href || '#'}
-                                style={{ color: 'var(--muted)', fontWeight: 500, fontSize: '0.85rem' }}
+                                style={{ color: '#475569', fontWeight: 600, fontSize: '0.9rem' }}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {item.label}
@@ -162,7 +172,7 @@ export default function Navbar() {
                 <Link
                     href="/login"
                     className="btn-primary"
-                    style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+                    style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
                     Login
@@ -170,7 +180,7 @@ export default function Navbar() {
 
                 <button
                     onClick={toggleTheme}
-                    className="glass theme-btn"
+                    className="theme-btn"
                     style={{
                         padding: '0.5rem',
                         cursor: 'pointer',
@@ -178,9 +188,10 @@ export default function Navbar() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        border: '1px solid var(--glass-border)',
-                        background: 'none',
-                        color: 'var(--foreground)'
+                        border: '1px solid #e2e8f0',
+                        borderRadius: '8px',
+                        background: '#f8fafc',
+                        color: '#1e293b'
                     }}
                     title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
                 >

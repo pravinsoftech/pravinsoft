@@ -110,6 +110,7 @@ export default function CoursesGrid({ variant, title, subtitle }: CoursesGridPro
                   time={course.time}
                   material_url={course.material_url}
                   registration_url={course.registration_url}
+                  course_image_url={course.course_image_url}
                 />
               ))}
             </div>

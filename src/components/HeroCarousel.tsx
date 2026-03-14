@@ -76,7 +76,7 @@ export default function HeroCarousel() {
                 alt=""
                 style={{
                   width: '100%',
-                  height: '100%',
+                  height: '80%',
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
@@ -148,8 +148,8 @@ export default function HeroCarousel() {
           <a
             href="/about"
             style={{
-              background: 'transparent',
-              color: 'white',
+              background: 'grey',
+              color: 'yellow',
               border: '1px solid var(--glass-border)',
               padding: '0.8rem 1.5rem',
               borderRadius: '0.5rem',

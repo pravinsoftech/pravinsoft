@@ -1,9 +1,11 @@
 import HeroCarousel from "@/components/HeroCarousel";
+import CourseCarousel from "@/components/CourseCarousel";
 
 export default function Home() {
   return (
     <main>
       <HeroCarousel />
+      <CourseCarousel />
 
       {/* Features / Courses Section */}
       <section id="skills" style={{ padding: "8rem 0" }}>

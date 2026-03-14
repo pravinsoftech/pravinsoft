@@ -10,11 +10,9 @@ type Props = {
 const TABS = [
   { id: 'online-training', label: 'Online Training' },
   { id: 'classroom-training', label: 'Classroom Training' },
-  { id: 'kphb', label: 'KPHB' },
   { id: 'workshops', label: 'Workshops' },
   { id: 'internships', label: 'Internships' },
   { id: 'weekend-training', label: 'Weekend Training' },
-  { id: 'jntu-h', label: 'JNTU-H' },
 ];
 
 const ENTRIES_OPTIONS = [10, 30, 50];
@@ -54,7 +52,7 @@ function filterByTab(batches: UpcomingBatchRow[], activeTab: string) {
 
   return batches.filter((batch) => {
     const nature = normalize(batch.training_nature);
-    const courseName = normalize(batch.course?.name || '');
+    const courseName = normalize(batch.course?.course_name || '');
 
     switch (tab) {
       case 'online-training':
@@ -67,10 +65,6 @@ function filterByTab(batches: UpcomingBatchRow[], activeTab: string) {
         return nature.includes('intern');
       case 'weekend-training':
         return nature.includes('weekend') || courseName.includes('weekend');
-      case 'kphb':
-        return nature.includes('kphb');
-      case 'jntu-h':
-        return nature.includes('jntu');
       default:
         return true;
     }
@@ -89,7 +83,7 @@ export function UpcomingBatchesTable({ batches }: Props) {
     if (!q) return tabFiltered;
 
     return tabFiltered.filter((batch) => {
-      const courseName = normalize(batch.course?.name || '');
+      const courseName = normalize(batch.course?.course_name || '');
       const facultyName = normalize(batch.faculty?.name || '');
       return courseName.includes(q) || facultyName.includes(q);
     });
@@ -228,7 +222,7 @@ export function UpcomingBatchesTable({ batches }: Props) {
           </thead>
           <tbody>
             {visible.map((batch, index) => {
-              const courseName = batch.course?.name ?? 'Course';
+              const courseName = batch.course?.course_name ?? 'Course';
               const facultyName = batch.faculty?.name ?? '';
               const dateDisplay = formatDate(batch.start_date);
               const timeDisplay = formatTime(batch.start_time);

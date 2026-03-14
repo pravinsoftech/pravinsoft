@@ -23,11 +23,10 @@ export default async function NewBatchesPage() {
       registration_link,
       payment_link,
       status,
-      course:course_id ( id, name, slug, description, price_display, status ),
+      course:course_id ( id, course_name ),
       faculty:faculty_id ( id, name, mobile, email )
     `,
     )
-    .in("status", ["live", "Live", "LIVE"])
     .order("start_date", { ascending: true })
     .order("start_time", { ascending: true });
 

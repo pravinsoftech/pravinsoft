@@ -8,6 +8,9 @@ import RecentBatchCard from "@/components/RecentBatchCard";
 export const metadata: Metadata = {
   title: "Upgrade AI Skills | Pravinsoft Technologies LLP",
   description: "Enhance your AI skills for the evolving job market of 2026. Learn AGI development, prompt engineering, and multimodal AI systems at our Hinjewadi, Pune center.",
+  icons: {
+    icon: "/ai-skill.ico",
+  },
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -56,7 +59,7 @@ export default function RootLayout({
             
           </div>
           <Navbar />
-          <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "36px" }}>
+          <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "106px" }}>
             {children}
           </div>
           <Footer />

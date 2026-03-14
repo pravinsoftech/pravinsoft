@@ -2,190 +2,342 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import Image from 'next/image';
 
-const WHATSAPP_NUMBER = '919881120025';
-const WHATSAPP_MESSAGE = 'I want to know more about courses and batches';
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+interface CourseRow {
+  id: string;
+  course_name: string;
+}
 
-interface FaqRow {
+interface FAQRow {
   id: string;
   question: string;
   answer: string;
-  sort_order: number;
 }
 
 export default function ChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [faqs, setFaqs] = useState<FaqRow[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [isLeadOpen, setIsLeadOpen] = useState(false);
+  const [isFaqOpen, setIsFaqOpen] = useState(false);
+  
+  const [courses, setCourses] = useState<CourseRow[]>([]);
+  const [faqs, setFaqs] = useState<FAQRow[]>([]);
+  const [faqSearch, setFaqSearch] = useState('');
+  const [selectedFaq, setSelectedFaq] = useState<FAQRow | null>(null);
 
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    email: '',
+    course_interest: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  // Fetch initial data
   useEffect(() => {
-    async function loadFaqs() {
-      const { data, error } = await supabase
-        .from('faqs')
-        .select('id, question, answer, sort_order')
-        .order('sort_order', { ascending: true });
-      if (!error && data) setFaqs(data as FaqRow[]);
-      setLoading(false);
+    async function fetchData() {
+      const [coursesRes, faqsRes] = await Promise.all([
+        supabase.from('courses').select('id, course_name').order('course_name'),
+        supabase.from('faqs').select('id, question, answer').order('sort_order', { ascending: true })
+      ]);
+      
+      if (coursesRes.data) setCourses(coursesRes.data);
+      if (faqsRes.data) setFaqs(faqsRes.data);
     }
-    loadFaqs();
+    fetchData();
   }, []);
 
-  const toggleFaq = (id: string) => {
-    setExpandedId((prev) => (prev === id ? null : id));
+  // Auto-open lead capture after 5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLeadOpen(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      // Find course name to submit instead of ID
+      const selectedCourse = courses.find(c => c.id === formData.course_interest);
+      const courseNameToSubmit = selectedCourse ? selectedCourse.course_name : formData.course_interest;
+
+      const payload = {
+        name: formData.name,
+        mobile: formData.mobile,
+        email: formData.email,
+        course_interest: courseNameToSubmit,
+      };
+
+      const { error } = await supabase.from('chat_leads').insert([payload]);
+
+      if (error) {
+         // Fallback to contact_submissions if chat_leads isn't created appropriately
+         await supabase.from('contact_submissions').insert([{
+             full_name: formData.name,
+             email: formData.email,
+             subject: `Chat Assistant Lead - ${formData.mobile}`,
+             message: `Interested in course: ${courseNameToSubmit || 'None specified'}`
+         }]);
+      }
+
+      setStatus({ type: 'success', message: 'Thank you! We will reach out to you shortly.' });
+      setFormData({ name: '', mobile: '', email: '', course_interest: '' });
+      setTimeout(() => setIsLeadOpen(false), 3000);
+    } catch (error: any) {
+      setStatus({ type: 'error', message: error.message || 'Something went wrong.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const filteredFaqs = faqs.filter(f => f.question.toLowerCase().includes(faqSearch.toLowerCase()));
+
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '1rem',
-        right: '1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        gap: '0.5rem',
-        zIndex: 9998,
-      }}
-    >
-      {/* WhatsApp - above chat */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Chat on WhatsApp"
-        style={{
-          width: 48,
-          height: 48,
-          borderRadius: '50%',
-          background: '#25D366',
-          color: '#fff',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.6rem',
-          boxShadow: '0 4px 12px rgba(37, 211, 102, 0.4)',
-          textDecoration: 'none',
-        }}
-        aria-label="WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-      </a>
+    <>
+      <div style={{ position: 'fixed', bottom: '20px', right: '25px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 9999 }}>
+        
+        {/* WhatsApp Icon (Top) */}
+        <a 
+          href="https://wa.me/919881120025?text=I%20want%20to%20know%20more%20about%20the%20courses" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: '#25D366',
+            color: 'white',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            transition: 'transform 0.2s',
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
+          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          aria-label="WhatsApp"
+        >
+          <Image src="/whatsapp.svg" alt="WhatsApp" width={40} height={40} />
+        </a>
 
-      {/* Chat icon */}
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        title="FAQs"
-        aria-label="Open FAQ chat"
-        style={{
-          width: 48,
-          height: 48,
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-          color: '#fff',
-          border: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.4rem',
-          cursor: 'pointer',
-          boxShadow: '0 4px 12px var(--glow-primary)',
-        }}
-      >
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" stroke="currentColor" strokeWidth="0">
-          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
-        </svg>
-      </button>
+        {/* Lead Capture Icon (Middle) */}
+        <button
+          onClick={() => { setIsLeadOpen(!isLeadOpen); setIsFaqOpen(false); }}
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--primary)',
+            color: 'white',
+            border: 'none',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'transform 0.2s',
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
+          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          aria-label="Chat Assistance"
+        >
+          <Image src="/chat.svg" alt="Chat" width={30} height={30} />
+        </button>
 
-      {/* Chat popup - small, bottom corner */}
-      {open && (
+        {/* FAQ Icon (Bottom) */}
+        <button
+          onClick={() => { setIsFaqOpen(!isFaqOpen); setIsLeadOpen(false); }}
+          style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            backgroundColor: '#0ea5e9',
+            color: 'white',
+            border: 'none',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'transform 0.2s',
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.1)')}
+          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          aria-label="FAQs"
+        >
+          <Image src="/faqs.svg" alt="FAQs" width={30} height={30} />
+        </button>
+      </div>
+
+      {/* Lead Capture Popup */}
+      {isLeadOpen && (
         <div
           className="glass"
           style={{
-            width: 'min(340px, calc(100vw - 2rem))',
-            maxHeight: 'min(400px, 60vh)',
+            position: 'fixed',
+            bottom: '100px',
+            right: '95px',
+            width: '320px',
             borderRadius: '12px',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-            boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+            padding: '1.5rem',
+            zIndex: 9999,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
             border: '1px solid var(--glass-border)',
+            animation: 'fadeIn 0.2s ease-out'
           }}
         >
-          <div
-            style={{
-              padding: '0.75rem 1rem',
-              borderBottom: '1px solid var(--glass-border)',
-              fontWeight: 700,
-              fontSize: '0.95rem',
-              color: 'var(--foreground)',
-            }}
-          >
-            FAQs
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+            <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>Chat Assistance</h3>
+            <button onClick={() => setIsLeadOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
           </div>
-          <div
-            style={{
-              overflowY: 'auto',
-              flex: 1,
-              padding: '0.5rem',
-            }}
-          >
-            {loading ? (
-              <p style={{ padding: '1rem', color: 'var(--muted)', fontSize: '0.9rem' }}>Loading...</p>
-            ) : faqs.length === 0 ? (
-              <p style={{ padding: '1rem', color: 'var(--muted)', fontSize: '0.9rem' }}>No FAQs yet.</p>
-            ) : (
-              faqs.map((faq) => (
-                <div
-                  key={faq.id}
-                  style={{
-                    marginBottom: '0.5rem',
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    overflow: 'hidden',
-                  }}
+
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name *"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+            />
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Mobile Number *"
+              required
+              value={formData.mobile}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email ID *"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+            />
+            <select
+              name="course_interest"
+              value={formData.course_interest}
+              onChange={handleChange}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+            >
+              <option value="">Select a Course (Optional)</option>
+              {courses.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.course_name}
+                </option>
+              ))}
+            </select>
+
+            {status && (
+              <div style={{ fontSize: '0.85rem', color: status.type === 'success' ? '#22c55e' : '#ef4444' }}>
+                {status.message}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-primary"
+              style={{ padding: '0.6rem', width: '100%', opacity: isSubmitting ? 0.7 : 1 }}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </button>
+          </form>
+        </div>
+      )}
+
+      {/* FAQ Popup */}
+      {isFaqOpen && (
+        <div
+          className="glass"
+          style={{
+            position: 'fixed',
+            bottom: '25px',
+            right: '95px',
+            width: '320px',
+            height: '400px',
+            borderRadius: '12px',
+            padding: '1.5rem',
+            zIndex: 9999,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+            border: '1px solid var(--glass-border)',
+            animation: 'fadeIn 0.2s ease-out',
+            display: 'flex',
+            flexDirection: 'column'
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+            <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600 }}>Ask a Question</h3>
+            <button onClick={() => { setIsFaqOpen(false); setSelectedFaq(null); }} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2rem' }}>✕</button>
+          </div>
+
+          <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {selectedFaq ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <button 
+                  onClick={() => setSelectedFaq(null)} 
+                  style={{ alignSelf: 'flex-start', background: 'none', border: 'none', color: '#0ea5e9', cursor: 'pointer', fontSize: '0.85rem', padding: 0 }}
                 >
-                  <button
-                    type="button"
-                    onClick={() => toggleFaq(faq.id)}
-                    style={{
-                      width: '100%',
-                      padding: '0.6rem 0.75rem',
-                      textAlign: 'left',
-                      background: 'transparent',
-                      border: 'none',
-                      color: 'var(--foreground)',
-                      fontSize: '0.85rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {faq.question}
-                    <span style={{ marginLeft: '0.25rem' }}>{expandedId === faq.id ? '▲' : '▼'}</span>
-                  </button>
-                  {expandedId === faq.id && (
-                    <div
-                      style={{
-                        padding: '0.5rem 0.75rem',
-                        fontSize: '0.8rem',
-                        color: 'var(--muted)',
-                        borderTop: '1px solid var(--glass-border)',
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {faq.answer}
-                    </div>
-                  )}
+                  ← Back to questions
+                </button>
+                <div style={{ background: 'var(--background)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+                  <h4 style={{ margin: '0 0 0.5rem 0', fontSize: '0.95rem', color: 'var(--foreground)' }}>Q: {selectedFaq.question}</h4>
+                  <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--muted)', lineHeight: '1.5' }}>A: {selectedFaq.answer}</p>
                 </div>
-              ))
+              </div>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  placeholder="Ask a question..."
+                  value={faqSearch}
+                  onChange={(e) => setFaqSearch(e.target.value)}
+                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)', marginBottom: '0.5rem' }}
+                />
+                
+                {filteredFaqs.length === 0 ? (
+                  <p style={{ color: 'var(--muted)', fontSize: '0.85rem', textAlign: 'center', marginTop: '1rem' }}>No FAQs found.</p>
+                ) : (
+                  filteredFaqs.map(faq => (
+                    <button
+                      key={faq.id}
+                      onClick={() => setSelectedFaq(faq)}
+                      style={{
+                        background: 'var(--background)',
+                        border: '1px solid var(--glass-border)',
+                        color: 'var(--foreground)',
+                        padding: '0.75rem',
+                        borderRadius: '6px',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        fontSize: '0.85rem',
+                        transition: 'background 0.2s'
+                      }}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'}
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--background)'}
+                    >
+                      {faq.question}
+                    </button>
+                  ))
+                )}
+              </>
             )}
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

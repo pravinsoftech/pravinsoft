@@ -6,8 +6,7 @@ import { supabase } from '@/lib/supabase';
 
 interface Course {
   id: string;
-  name: string;
-  slug: string | null;
+  course_name: string;
 }
 
 interface Faculty {
@@ -61,7 +60,7 @@ export default function RecentBatchCard() {
           start_date,
           start_time,
           training_nature,
-          course:course_id ( id, name, slug ),
+          course:course_id ( id, course_name ),
           faculty:faculty_id ( id, name )
         `
         )
@@ -84,7 +83,7 @@ export default function RecentBatchCard() {
 
   if (!show || !batch) return null;
 
-  const courseName = batch.course?.name ?? 'Course';
+  const courseName = batch.course?.course_name ?? 'Course';
   const facultyName = batch.faculty?.name ?? '';
   const dateDisplay = formatDate(batch.start_date);
   const timeDisplay = formatTime(batch.start_time);
