@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
                 <section>
                     <h2 style={{ color: 'white', marginBottom: '1rem', fontSize: '1.5rem' }}>5. Contact for Grievances</h2>
                     <p>
-                        For any privacy-related queries or data access requests, please contact our Compliance Officer at the Hinjewadi office or via legal@pravinsoft.ai.
+                        For any privacy-related queries or data access requests, please contact our Compliance Officer at the Hinjewadi office or via legal@pravinsoft.in.
                     </p>
                 </section>
             </div>

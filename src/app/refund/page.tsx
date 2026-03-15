@@ -33,7 +33,7 @@ export default function RefundPolicy() {
                 <section>
                     <h2 style={{ color: 'white', marginBottom: '1rem', fontSize: '1.5rem' }}>4. Process for Refund</h2>
                     <p>
-                        Formal applications for refund must be submitted via email to finance@pravinsoft.ai. Approved refunds are usually processed within 10-15 business days to the original instrument of payment.
+                        Formal applications for refund must be submitted via email to finance@pravinsoft.in. Approved refunds are usually processed within 10-15 business days to the original instrument of payment.
                     </p>
                 </section>
             </div>

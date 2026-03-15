@@ -24,7 +24,7 @@ export default function ContactPage() {
                     </div>
 
                     <h3 style={{ color: 'var(--foreground)', fontSize: '1.3rem', marginBottom: '1.5rem', fontWeight: 600 }}>Technical Support</h3>
-                    <p style={{ color: 'var(--muted)', marginBottom: '0.5rem' }}>Email: support@pravinsoft.ai</p>
+                    <p style={{ color: 'var(--muted)', marginBottom: '0.5rem' }}>Email: support@pravinsoft.in</p>
                     <p style={{ color: 'var(--muted)' }}>Phone: +91 20 6655 XXXX</p>
 
                     <div className="glass" style={{ marginTop: '3rem', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderStyle: 'dashed' }}>
