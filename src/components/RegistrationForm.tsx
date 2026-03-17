@@ -65,22 +65,22 @@ export default function RegistrationForm() {
         <div className="glass" style={{ padding: '0', overflow: 'hidden', height: 'fit-content' }}>
             <div style={{
                 background: 'linear-gradient(90deg, #1e293b 0%, #334155 100%)',
-                padding: '1.5rem',
+                padding: '1rem',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1rem',
+                gap: '0.75rem',
                 borderBottom: '1px solid rgba(255,255,255,0.1)'
             }}>
                 <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'white', margin: 0 }}>
+                    <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'white', margin: 0 }}>
                         Top 5 Technologies to learn
                     </h3>
-                    <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', margin: '0.25rem 0 0' }}>
+                    <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.8)', margin: '0.2rem 0 0' }}>
                         Register for the Course
                     </p>
                 </div>
-                <div style={{ width: '60px', height: '60px', position: 'relative' }}>
+                <div style={{ width: '45px', height: '45px', position: 'relative' }}>
                    {/* Placeholder for the person icon/image seen in the UI */}
                    <div style={{ 
                         width: '100%', 
@@ -91,7 +91,7 @@ export default function RegistrationForm() {
                         alignItems: 'center',
                         justifyContent: 'center'
                    }}>
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
@@ -99,7 +99,7 @@ export default function RegistrationForm() {
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit} style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            <form onSubmit={handleSubmit} style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 <input
                     type="text"
                     name="full_name"
@@ -107,11 +107,11 @@ export default function RegistrationForm() {
                     onChange={handleChange}
                     placeholder="Full Name"
                     style={{
-                        padding: '1rem',
+                        padding: '0.7rem',
                         background: 'white',
                         border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
                         color: '#1e293b'
                     }}
                     required
@@ -123,11 +123,11 @@ export default function RegistrationForm() {
                     onChange={handleChange}
                     placeholder="Email address"
                     style={{
-                        padding: '1rem',
+                        padding: '0.7rem',
                         background: 'white',
                         border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
                         color: '#1e293b'
                     }}
                     required
@@ -139,11 +139,11 @@ export default function RegistrationForm() {
                     onChange={handleChange}
                     placeholder="Mobile Number"
                     style={{
-                        padding: '1rem',
+                        padding: '0.7rem',
                         background: 'white',
                         border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
                         color: '#1e293b'
                     }}
                     required
@@ -153,11 +153,11 @@ export default function RegistrationForm() {
                     value={formData.course}
                     onChange={handleChange}
                     style={{
-                        padding: '1rem',
+                        padding: '0.7rem',
                         background: 'white',
                         border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
                         color: '#1e293b',
                         appearance: 'none'
                     }}
@@ -176,11 +176,11 @@ export default function RegistrationForm() {
                     value={formData.training_mode}
                     onChange={handleChange}
                     style={{
-                        padding: '1rem',
+                        padding: '0.7rem',
                         background: 'white',
                         border: '1px solid #e2e8f0',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.85rem',
                         color: '#1e293b',
                         appearance: 'none'
                     }}
@@ -192,25 +192,25 @@ export default function RegistrationForm() {
                     <option value="Hybrid">Hybrid</option>
                 </select>
 
-                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
                     <input
                         type="checkbox"
                         name="agreed"
                         id="agreed"
                         checked={formData.agreed}
                         onChange={handleChange}
-                        style={{ marginTop: '0.25rem' }}
+                        style={{ marginTop: '0.2rem' }}
                     />
-                    <label htmlFor="agreed" style={{ fontSize: '0.8rem', color: '#64748b', lineHeight: '1.4' }}>
+                    <label htmlFor="agreed" style={{ fontSize: '0.7rem', color: '#64748b', lineHeight: '1.3' }}>
                         By Providing your contact details, you agree to our <a href="/terms" style={{ color: '#3b82f6', textDecoration: 'none' }}>Terms of use</a> & <a href="/privacy" style={{ color: '#3b82f6', textDecoration: 'none' }}>Privacy Policy</a>
                     </label>
                 </div>
 
                 {status && (
                     <div style={{
-                        padding: '0.75rem',
-                        borderRadius: '8px',
-                        fontSize: '0.9rem',
+                        padding: '0.6rem',
+                        borderRadius: '6px',
+                        fontSize: '0.8rem',
                         backgroundColor: status.type === 'success' ? 'rgba(34, 197, 94, 0.1)' : 'rgba(239, 68, 68, 0.1)',
                         color: status.type === 'success' ? '#22c55e' : '#ef4444',
                         border: `1px solid ${status.type === 'success' ? '#22c55e' : '#ef4444'}`
@@ -223,16 +223,16 @@ export default function RegistrationForm() {
                     type="submit"
                     disabled={isSubmitting}
                     style={{
-                        padding: '1rem',
+                        padding: '0.75rem',
                         background: '#1d4ed8',
                         color: 'white',
                         border: 'none',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
+                        borderRadius: '6px',
+                        fontSize: '0.9rem',
                         fontWeight: 700,
                         cursor: isSubmitting ? 'not-allowed' : 'pointer',
                         opacity: isSubmitting ? 0.7 : 1,
-                        marginTop: '0.5rem'
+                        marginTop: '0.25rem'
                     }}
                 >
                     {isSubmitting ? 'Submitting...' : 'Submit'}

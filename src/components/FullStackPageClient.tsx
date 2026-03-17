@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import EnrollmentModal from './EnrollmentModal';
 import RegistrationForm from './RegistrationForm';
 import FullStackTabs from './FullStackTabs';
+import CourseCard from './CourseCard';
 
 interface Course {
     id: string;
@@ -30,83 +31,38 @@ export default function FullStackPageClient({ courses, batches }: Props) {
 
     return (
         <div className="container" style={{ marginTop: '2rem' }}>
-            <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1e293b', marginBottom: '1.5rem' }}>
+            <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1e293b', marginBottom: '1.25rem' }}>
                 Full Stack Courses
             </h1>
 
             <FullStackTabs />
 
             <div id="courses" style={{ marginBottom: '6rem' }}>
-                <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#1e293b', marginBottom: '2rem' }}>
+                <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#1e293b', marginBottom: '1.5rem' }}>
                     Full stack Courses
                 </h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: '2rem', alignItems: 'start' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: '1.5rem', alignItems: 'start' }}>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         gap: '1rem'
                     }}>
-                        {courses.map((course) => (
-                            <div key={course.id} className="glass" style={{
-                                padding: '0',
-                                overflow: 'hidden',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                background: 'white',
-                                border: '1px solid #e2e8f0',
-                                borderRadius: '8px'
-                            }}>
-                                <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3' }}>
-                                    <img
-                                        src={course.course_image_url || 'https://via.placeholder.com/400x300?text=Course+Image'}
-                                        alt={course.course_name}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                    />
-                                </div>
-                                <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                    <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.5rem', minHeight: '2.5rem' }}>
-                                        {course.course_name}
-                                    </h3>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.1rem', marginBottom: '1rem' }}>
-                                        {[1, 2, 3, 4, 5].map((star) => (
-                                            <svg key={star} width="12" height="12" viewBox="0 0 24 24" fill={star <= 4 ? "#fbbf24" : "#e2e8f0"}>
-                                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                            </svg>
-                                        ))}
-                                        <span style={{ fontSize: '0.75rem', color: '#64748b', marginLeft: '0.25rem' }}>4.5</span>
-                                    </div>
-
-                                    <div style={{ display: 'flex', gap: '0.4rem', marginTop: 'auto' }}>
-                                        <button onClick={() => setIsModalOpen(true)} style={{
-                                            flex: 1,
-                                            background: '#0284c7',
-                                            color: 'white',
-                                            border: 'none',
-                                            padding: '0.5rem',
-                                            fontWeight: 700,
-                                            textTransform: 'uppercase',
-                                            fontSize: '0.7rem',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer'
-                                        }}>
-                                            Enroll
-                                        </button>
-                                        <button style={{
-                                            padding: '0.5rem',
-                                            background: 'white',
-                                            border: '1px solid #e2e8f0',
-                                            borderRadius: '4px',
-                                            cursor: 'pointer'
-                                        }}>
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                <circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                        {courses.map((course) => {
+                            const courseBatch = batches.find(b => b.course?.course_name === course.course_name);
+                            return (
+                                <CourseCard 
+                                    key={course.id}
+                                    id={course.id}
+                                    course_name={course.course_name}
+                                    course_image_url={course.course_image_url}
+                                    faculty_name={courseBatch?.faculty?.name || 'Academic Team'}
+                                    start_date={courseBatch?.start_date || new Date().toISOString()}
+                                    time={courseBatch?.start_time || '9:00 AM'}
+                                    registration_url={`/courses/${course.id}`}
+                                />
+                            );
+                        })}
                     </div>
 
                     <div style={{ position: 'sticky', top: '5rem' }}>

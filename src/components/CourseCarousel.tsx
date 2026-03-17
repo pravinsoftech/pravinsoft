@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import Link from 'next/link';
-import Image from 'next/image';
+import CourseCard from './CourseCard';
 
 interface Course {
   id: string;
@@ -49,39 +48,17 @@ export default function CourseCarousel() {
           padding: '0 1rem'
         }}>
           {duplicatedCourses.map((course, idx) => (
-            <Link key={`${course.id}-${idx}`} href={`/courses/${course.id}`} style={{ textDecoration: 'none' }}>
-              <div className="glass" style={{
-                width: '300px',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                transition: 'transform 0.3s ease',
-                cursor: 'pointer'
-              }}
-              onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-              onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <div style={{ width: '100%', aspectRatio: '2/1', backgroundColor: '#2a2a35', position: 'relative' }}>
-                  {course.course_image_url ? (
-                    <Image src={course.course_image_url} alt={course.course_name} fill style={{ objectFit: 'cover' }} />
-                  ) : (
-                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6b7280', fontSize: '0.9rem' }}>
-                      2:1 Image
-                    </div>
-                  )}
-                </div>
-                <div style={{ padding: '1.5rem', whiteSpace: 'normal' }}>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--primary)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    {course.category || 'Technology'}
-                  </span>
-                  <h3 style={{ margin: '0.5rem 0 0 0', fontSize: '1.1rem', fontWeight: 600, color: 'var(--foreground)', lineHeight: 1.4 }}>
-                    {course.course_name}
-                  </h3>
-                </div>
-              </div>
-            </Link>
+             <div key={`${course.id}-${idx}`} style={{ width: '260px', flexShrink: 0 }}>
+             <CourseCard 
+               id={course.id}
+               course_name={course.course_name}
+               course_image_url={course.course_image_url}
+               faculty_name="Expert Faculty"
+               start_date={new Date().toISOString()}
+               time="10:00 AM"
+               registration_url={`/courses/${course.id}`}
+             />
+           </div>
           ))}
         </div>
       </div>

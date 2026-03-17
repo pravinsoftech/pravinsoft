@@ -1,14 +1,12 @@
 export default function WorkshopsPage() {
-  return (
-    <main className="container" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
-      <h1 className="gradient-text" style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "1rem" }}>
-        Workshops
-      </h1>
-      <p style={{ color: "var(--muted)", maxWidth: "640px", fontSize: "1.05rem" }}>
-        Short-term, high-intensity technical workshops on niche topics. Use this page to
-        publish upcoming workshop schedules and agendas.
-      </p>
-    </main>
-  );
+    return (
+        <div className="container" style={{ padding: '6rem 0', textAlign: 'center' }}>
+            <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1e293b', marginBottom: '1.5rem' }}>
+                Workshops
+            </h1>
+            <p style={{ color: '#64748b', fontSize: '1.2rem' }}>
+                Content for Workshops will be added soon.
+            </p>
+        </div>
+    );
 }
-

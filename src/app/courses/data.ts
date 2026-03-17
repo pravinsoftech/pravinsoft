@@ -34,11 +34,4 @@ export const courses = [
         price: '₹29,999',
         status: 'Upcoming'
     },
-    {
-        id: 'full-stack-java-online-training',
-        title: 'Full Stack Java',
-        description: 'Comprehensive 6-month program covering Core Java, Spring Boot, Microservices, and Modern Web Tech.',
-        price: '₹20,000',
-        status: 'Available'
-    }
 ];

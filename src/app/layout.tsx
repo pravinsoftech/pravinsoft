@@ -60,7 +60,7 @@ export default function RootLayout({
             
           </div>
           <Navbar />
-          <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "106px" }}>
+          <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "106px", overflowX: 'clip' }}>
             {children}
           </div>
           <Footer />

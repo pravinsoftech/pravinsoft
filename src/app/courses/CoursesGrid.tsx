@@ -2,7 +2,8 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import CourseCard from '@/components/CourseCard';
-import Sidebar from '@/components/Sidebar';
+import CourseSidebar from '@/components/CourseSidebar';
+import CourseHero from '@/components/CourseHero';
 import { supabase } from '@/lib/supabase';
 
 type Variant =
@@ -67,58 +68,69 @@ export default function CoursesGrid({ variant, title, subtitle }: CoursesGridPro
     return subset.length > 0 ? subset : courses;
   }, [courses, variant]);
 
+  const breadcrumbs = [
+    { label: title }
+  ];
+
   return (
-    <main className="container" style={{ padding: '8rem 2rem 4rem' }}>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          marginBottom: '4rem',
-        }}
-      >
-        <div>
-          <h1
-            className="gradient-text"
-            style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '1rem' }}
-          >
-            {title}
-          </h1>
-          <p style={{ color: 'var(--muted)', fontSize: '1.1rem', maxWidth: '600px' }}>{subtitle}</p>
+    <main style={{ background: '#f8fafc', minHeight: '100vh' }}>
+      <CourseHero 
+        title={title}
+        subtitle={subtitle}
+        breadcrumbs={breadcrumbs}
+      />
+
+      <div className="container" style={{ padding: '4rem 2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: '3rem', alignItems: 'start' }}>
+          <div>
+            {loading ? (
+              <p style={{ color: 'var(--muted)' }}>Loading courses...</p>
+            ) : (
+              <div
+                className="courses-list-grid"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(4, 1fr)',
+                  gap: '1.5rem',
+                }}
+              >
+                {filteredCourses.map((course) => (
+                  <CourseCard
+                    key={course.id}
+                    id={course.id}
+                    course_name={course.course_name}
+                    faculty_name={course.faculty_name}
+                    start_date={course.start_date}
+                    time={course.time}
+                    material_url={course.material_url}
+                    registration_url={course.registration_url}
+                    course_image_url={course.course_image_url}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+          <CourseSidebar />
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '4rem' }}>
-        <div>
-          {loading ? (
-            <p style={{ color: 'var(--muted)' }}>Loading courses...</p>
-          ) : (
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-                gap: '2rem',
-              }}
-            >
-              {filteredCourses.map((course) => (
-                <CourseCard
-                  key={course.id}
-                  id={course.id}
-                  course_name={course.course_name}
-                  faculty_name={course.faculty_name}
-                  start_date={course.start_date}
-                  time={course.time}
-                  material_url={course.material_url}
-                  registration_url={course.registration_url}
-                  course_image_url={course.course_image_url}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-        <Sidebar />
-      </div>
-      
+      <style jsx>{`
+        @media (max-width: 1100px) {
+          .courses-list-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+        @media (max-width: 850px) {
+          .courses-list-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 580px) {
+          .courses-list-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </main>
   );
 }

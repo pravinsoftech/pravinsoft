@@ -1,14 +1,12 @@
 export default function RealTimeProjectsPage() {
-  return (
-    <main className="container" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
-      <h1 className="gradient-text" style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "1rem" }}>
-        Real-Time Projects
-      </h1>
-      <p style={{ color: "var(--muted)", maxWidth: "640px", fontSize: "1.05rem" }}>
-        Guided real-time projects that simulate production environments using current
-        technologies. You can use this page to outline project tracks and deliverables.
-      </p>
-    </main>
-  );
+    return (
+        <div className="container" style={{ padding: '6rem 0', textAlign: 'center' }}>
+            <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1e293b', marginBottom: '1.5rem' }}>
+                Real-Time Projects
+            </h1>
+            <p style={{ color: '#64748b', fontSize: '1.2rem' }}>
+                Content for Real-Time Projects will be added soon.
+            </p>
+        </div>
+    );
 }
-
