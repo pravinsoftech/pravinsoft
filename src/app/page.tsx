@@ -12,7 +12,7 @@ export default function Home() {
             <CourseCarousel />
 
             {/* Key Learning Advantages Section */}
-            <section id="skills" style={{ padding: "6rem 0", background: '#f8fafc' }}>
+            <section id="skills" style={{ padding: "6rem 0", background: '#ffffffff' }}>
                 <div className="container">
                     <h2
                         style={{
@@ -73,7 +73,7 @@ export default function Home() {
                         ].map((feature) => (
                             <div
                                 key={feature.id}
-                                className="glass"
+                                className="solid"
                                 style={{
                                     padding: "3rem 1.75rem 1.75rem",
                                     background: 'white',
@@ -90,23 +90,21 @@ export default function Home() {
                                     position: 'absolute',
                                     top: '-50px',
                                     left: '1.75rem',
-                                    background: 'white',
+                                    background: 'transparent',
                                     borderRadius: '20px',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    boxShadow: '0 12px 24px rgba(0,0,0,0.12)',
-                                    border: '1px solid #f1f5f9',
                                     zIndex: 2
                                 }}>
-                                    <Image src={feature.icon} alt={feature.title} width={60} height={60} />
+                                    <Image src={feature.icon} alt={feature.title} width={100} height={100} />
                                 </div>
                                 <h3
-                                    style={{ fontSize: "1.2rem", fontWeight: 700, color: '#1e293b', marginBottom: "1rem" }}
+                                    style={{ fontSize: "1.2rem", fontWeight: 700, color: '#635f64ff', marginBottom: "1rem" }}
                                 >
                                     {feature.title}
                                 </h3>
-                                <p style={{ color: "#64748b", fontSize: '0.95rem', lineHeight: "1.6" }}>
+                                <p style={{ color: "#2f84d9ff", fontSize: '0.95rem', lineHeight: "1.6" }}>
                                     {feature.desc}
                                 </p>
                             </div>
@@ -269,11 +267,11 @@ export default function Home() {
                             marginBottom: '2rem',
                             letterSpacing: '-0.5px'
                         }}>
-                            Empowering <span style={{ color: '#94a3b8' }}>Futures</span>: PravinSoft's 22-Year <span style={{ color: '#94a3b8' }}>Legacy</span> of Hands-On <span style={{ color: '#94a3b8' }}>Excellence</span>
+                            Empowering <span style={{ color: '#94a3b8' }}>Futures</span>: PravinSoft's 5+ Year <span style={{ color: '#94a3b8' }}>Legacy</span> of Hands-On <span style={{ color: '#94a3b8' }}>Excellence</span>
                         </h2>
 
                         <p style={{ color: '#94a3b8', fontSize: '1.1rem', maxWidth: '800px', lineHeight: 1.7 }}>
-                            PravinSoft, with over 22 years of training experience, offers hands-on training, With expert trainers and a mission to empower, we ensure successful placements and career advancement for our students.
+                            PravinSoft, with over 5+ years of training experience, offers hands-on training, With expert trainers and a mission to empower, we ensure successful placements and career advancement for our students.
                         </p>
                     </div>
 
@@ -292,7 +290,7 @@ export default function Home() {
                                 flexShrink: 0,
                                 boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
                             }}>
-                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#06b6d4' }}>22+</span>
+                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#06b6d4' }}>5+</span>
                                 <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1e293b', textAlign: 'center', marginTop: '6px', lineHeight: 1.2 }}>Years<br />Experience</span>
                             </div>
                             <div style={{ flex: 1 }}>
@@ -319,8 +317,7 @@ export default function Home() {
                                 flexShrink: 0,
                                 boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
                             }}>
-                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#1d4ed8' }}>10+</span>
-                                <span style={{ fontSize: '0.8rem', fontWeight: 900, color: '#1d4ed8', background: 'rgba(29, 78, 216, 0.1)', padding: '2px 8px', borderRadius: '4px', letterSpacing: '1px' }}>LAKHS</span>
+                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#1d4ed8' }}>500+</span>
                                 <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1e293b', textAlign: 'center', marginTop: '6px', lineHeight: 1.2 }}>Students<br />Trained</span>
                             </div>
                             <div style={{ flex: 1 }}>
@@ -347,7 +344,7 @@ export default function Home() {
                                 flexShrink: 0,
                                 boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
                             }}>
-                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#db2777' }}>95%</span>
+                                <span style={{ fontSize: '3rem', fontWeight: 900, color: '#db2777' }}>96%</span>
                                 <span style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1e293b', textAlign: 'center', marginTop: '6px', lineHeight: 1.2 }}>Career<br />Launch Success</span>
                             </div>
                             <div style={{ flex: 1 }}>
@@ -592,7 +589,7 @@ export default function Home() {
                         {/* Header Area */}
                         <div style={{ paddingTop: '2rem' }}>
                             <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
-                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>2801+</span> Our students placed in the recent Years
+                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>PravinSost's</span> Students Placed in the Best Companies
                             </h2>
 
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
@@ -631,7 +628,7 @@ export default function Home() {
                                 }}>
                                     <span style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>“</span>
                                     <p style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem', paddingTop: '1.5rem' }}>
-                                        I had an opportunity to learn multicloud devops under the guidance of veera sir and it was a great experience. His teaching style is clear,and practical, making complex cloud concepts easy to understand.
+                                        I am a working professional and this training helped me upgrade my skills. The flexible online sessions, recorded classes, and real-time projects are very useful. Pravin Sir explains every topic patiently and clears all doubts. Great learning experience.
                                     </p>
                                     <span style={{ position: 'absolute', bottom: '7rem', right: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>”</span>
 
@@ -647,7 +644,7 @@ export default function Home() {
                                         <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.9rem', fontWeight: 700, color: '#475569', overflow: 'hidden' }}>
                                             <Image src="/images/Asset 1.svg" alt="Avatar" width={40} height={40} style={{ opacity: 0.5 }} />
                                         </div>
-                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Shanmuk Reddy</div>
+                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Pranit Jadhav</div>
                                     </div>
 
                                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem' }}>
@@ -667,7 +664,7 @@ export default function Home() {
                                 }}>
                                     <span style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>“</span>
                                     <p style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem', paddingTop: '1.5rem' }}>
-                                        Best institute. I am glad that I decided to do my internship and full stack course here.
+                                        One of The Best Mentorships who focuses on practical, in-depth learning rather than just theory. The guidance helps build strong technical fundamentals and real-world understanding. Highly recommended for professionals aiming for long-term career growth in IT.
                                     </p>
                                     <span style={{ position: 'absolute', bottom: '7rem', right: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>”</span>
 
@@ -683,12 +680,12 @@ export default function Home() {
                                         <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#a21caf', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
                                             S
                                         </div>
-                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Shakina Bano</div>
+                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Mayur Kamthe</div>
                                     </div>
 
                                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem' }}>
                                         course : <br />
-                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Mr. Prakash Senapathi</span>
+                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Mr. Pravin Patil</span>
                                     </div>
                                 </div>
                             </div>
@@ -706,7 +703,8 @@ export default function Home() {
                                 }}>
                                     <span style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>“</span>
                                     <p style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem', paddingTop: '1.5rem' }}>
-                                        I completed a data science course at PravinSoft Institute, where Omkar Sir was my trainer. His teaching was excellent, focusing on real-world company problems, and I gained practical experience through internships. I'm thankful to Sir for providing such valuable guidance.
+                                        An industry-experienced mentor who helps learners dive deep into technical topics and unravel their knowledge base, going beyond high-level theoretical concepts.
+                                        <br />I recommend this institution to professionals who are looking to take their career trajectory to the next level and ensure long-term sustainability in the highly competitive IT industry.
                                     </p>
                                     <span style={{ position: 'absolute', bottom: '7rem', right: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>”</span>
 
@@ -722,12 +720,12 @@ export default function Home() {
                                         <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#4338ca', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
                                             V
                                         </div>
-                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>V Sai Krishna Teja</div>
+                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Nikhil Gadhak</div>
                                     </div>
 
                                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem' }}>
                                         course : <br />
-                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Real-Time Expert</span>
+                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Pravin Patil</span>
                                     </div>
                                 </div>
 
@@ -742,7 +740,7 @@ export default function Home() {
                                 }}>
                                     <span style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>“</span>
                                     <p style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem', paddingTop: '1.5rem' }}>
-                                        Good teaching staff especially C KISHORE SIR ORACLE SUDHAKAR SIR HTML CSS JS SIVAKUMAR SIR CORE JAVA RAVI SHANKAR SINGH SIR IS EXCELLENT TEACHING AND VERY GOOD EXPERIENCE FACULTY
+                                        The mentor brings real industry experience into every session, helping learners explore concepts in depth and understand how they are applied in real projects. This institute is ideal for professionals who want to future-proof their IT careers and move to the next level.
                                     </p>
                                     <span style={{ position: 'absolute', bottom: '7rem', right: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>”</span>
 
@@ -758,12 +756,12 @@ export default function Home() {
                                         <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#1e293b', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
                                             <div style={{ width: '100%', height: '100%', background: '#475569', opacity: 0.8 }}></div>
                                         </div>
-                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Abhinav</div>
+                                        <div style={{ fontWeight: 800, color: '#1e293b', fontSize: '0.95rem' }}>Sagar Gaikwad</div>
                                     </div>
 
                                     <div style={{ fontSize: '0.8rem', color: '#94a3b8', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem' }}>
                                         course : <br />
-                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Real-Time Expert</span>
+                                        <span style={{ fontWeight: 600, color: '#64748b' }}>By Pravin Patil</span>
                                     </div>
                                 </div>
                             </div>
@@ -781,7 +779,7 @@ export default function Home() {
                         {/* Header Area */}
                         <div>
                             <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
-                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>800+</span> Top MNC's are our Hiring Partners
+                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>Top MNC's</span> are our Hiring Partners
                             </h2>
 
                             <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.6, maxWidth: '350px' }}>
@@ -872,8 +870,8 @@ export default function Home() {
             {/* Placed Students Section */}
             <section style={{
                 padding: "6rem 0",
-                background: '#f8fafc',
-                backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent)',
+                background: '#ffffffff',
+                backgroundImage: 'linear-gradient(135deg, rgba(255, 198, 55, 1) 5%, transparent 5%, transparent 5%, rgba(255, 198, 55, 1) 5%, rgba(255, 198, 55, 1) 5%, transparent 5%, transparent)',
                 backgroundSize: '60px 60px',
                 position: 'relative',
                 overflow: 'hidden'
@@ -886,7 +884,7 @@ export default function Home() {
                     display: 'grid',
                     gridTemplateColumns: 'repeat(6, 6px)',
                     gap: '12px',
-                    opacity: 0.15
+                    opacity: 15
                 }}>
                     {[...Array(36)].map((_, i) => (
                         <div key={i} style={{ width: '4px', height: '4px', background: '#475569', borderRadius: '50%' }}></div>
@@ -952,12 +950,12 @@ export default function Home() {
                             rowGap: '3rem'
                         }}>
                             {[
-                                { name: "Debashis Behera", role: "Java Developer", company: "Emagia Corporation", color: "#f59e0b" },
-                                { name: "Rupal Borkar", role: "Java Developer", company: "Mphasis Ltd", color: "#ea580c" },
-                                { name: "Sai Bharathi", role: "Web Developer", company: "Conseqta Technology", color: "#f97316" },
-                                { name: "Indrani Malladi", role: "QA Engineer", company: "Celium Pvt Ltd", color: "#f59e0b" },
-                                { name: "Balaji Kumar", role: "Java Developer", company: "eGlobal Infotech", color: "#ea580c" },
-                                { name: "Anshuman Swain", role: "Web Developer", company: "Conseqta Technology", color: "#f97316" },
+                                { name: "Debashis", role: "Java Developer", company: "Emagia Corporation", color: "#4989ffff" },
+                                { name: "Rupal", role: "Java Developer", company: "Mphasis Ltd", color: "#ea580c" },
+                                { name: "Sai", role: "Web Developer", company: "Conseqta Technology", color: "#16f962ff" },
+                                { name: "Indrani", role: "QA Engineer", company: "Celium Pvt Ltd", color: "#f50b97ff" },
+                                { name: "Balaji", role: "Java Developer", company: "eGlobal Infotech", color: "#ea580c" },
+                                { name: "Anshuman", role: "Web Developer", company: "Conseqta Technology", color: "#f97316" },
                                 { name: "Shreya V Tawalare", role: "Java Developer", company: "Sisnx Techno", color: "#f59e0b" },
                                 { name: "Sameer", role: "Web Developer", company: "Gisfy Pvt Ltd", color: "#ea580c" },
                                 { name: "K Tejeswari", role: "Java Developer", company: "Virinchi", color: "#f97316" },
@@ -975,7 +973,7 @@ export default function Home() {
                                     {/* Card Header (Gradient + City) */}
                                     <div style={{
                                         height: '90px',
-                                        background: `linear-gradient(135deg, ${student.color} 0%, #fbbf24 100%)`,
+                                        background: `linear-gradient(135deg, ${student.color} 0%, #ffffffff 100%)`,
                                         position: 'relative'
                                     }}>
                                         <div style={{
@@ -996,9 +994,9 @@ export default function Home() {
                                             transform: 'translateX(-50%)',
                                             width: '75px',
                                             height: '75px',
-                                            background: '#f8fafc',
+                                            background: '#3097ffff',
                                             borderRadius: '50%',
-                                            border: '4px solid white',
+                                            border: '2px solid white',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -1006,7 +1004,7 @@ export default function Home() {
                                             zIndex: 2,
                                             boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
                                         }}>
-                                            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#cbd5e1' }}>
+                                            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#515457ff' }}>
                                                 {student.name.charAt(0)}
                                             </div>
                                         </div>
@@ -1090,7 +1088,7 @@ export default function Home() {
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
                     <span style={{ fontWeight: 600, fontSize: '0.9rem', letterSpacing: '0.5px' }}>
-                        TALK TO ADVISOR <span style={{ marginLeft: '10px', fontSize: '1.1rem' }}>+91 8179191999</span>
+                        TALK TO ADVISOR <span style={{ marginLeft: '10px', fontSize: '1.1rem' }}>+91 9209072990</span>
                     </span>
                 </div>
 
