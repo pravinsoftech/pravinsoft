@@ -50,13 +50,12 @@ export default function RootLayout({
               zIndex: 9999,
             }}
           >
-            <div className="hidden sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
-
+            
             <div style={{ display: "flex", gap: "1.5rem" }}>
               <span>📞 +91 92090 72989</span>
               <span>📞 +91 92090 72990</span>
             </div>
-
+<div className="sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
             
           </div>
           <Navbar />

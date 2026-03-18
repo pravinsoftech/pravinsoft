@@ -18,7 +18,7 @@ interface FAQRow {
 export default function ChatWidget() {
   const [isLeadOpen, setIsLeadOpen] = useState(false);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
-  
+
   const [courses, setCourses] = useState<CourseRow[]>([]);
   const [faqs, setFaqs] = useState<FAQRow[]>([]);
   const [faqSearch, setFaqSearch] = useState('');
@@ -40,7 +40,7 @@ export default function ChatWidget() {
         supabase.from('courses').select('id, course_name').order('course_name'),
         supabase.from('faqs').select('id, question, answer').order('sort_order', { ascending: true })
       ]);
-      
+
       if (coursesRes.data) setCourses(coursesRes.data);
       if (faqsRes.data) setFaqs(faqsRes.data);
     }
@@ -79,13 +79,13 @@ export default function ChatWidget() {
       const { error } = await supabase.from('chat_leads').insert([payload]);
 
       if (error) {
-         // Fallback to contact_submissions if chat_leads isn't created appropriately
-         await supabase.from('contact_submissions').insert([{
-             full_name: formData.name,
-             email: formData.email,
-             subject: `Chat Assistant Lead - ${formData.mobile}`,
-             message: `Interested in course: ${courseNameToSubmit || 'None specified'}`
-         }]);
+        // Fallback to contact_submissions if chat_leads isn't created appropriately
+        await supabase.from('contact_submissions').insert([{
+          full_name: formData.name,
+          email: formData.email,
+          subject: `Chat Assistant Lead - ${formData.mobile}`,
+          message: `Interested in course: ${courseNameToSubmit || 'None specified'}`
+        }]);
       }
 
       setStatus({ type: 'success', message: 'Thank you! We will reach out to you shortly.' });
@@ -103,11 +103,11 @@ export default function ChatWidget() {
   return (
     <>
       <div style={{ position: 'fixed', bottom: '20px', right: '25px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 9999 }}>
-        
+
         {/* WhatsApp Icon (Top) */}
-        <a 
-          href="https://wa.me/919881120025?text=I%20want%20to%20know%20more%20about%20the%20courses" 
-          target="_blank" 
+        <a
+          href="https://wa.me/919209072989?text=I%20want%20to%20know%20more%20about%20the%20courses"
+          target="_blank"
           rel="noopener noreferrer"
           style={{
             width: '60px',
@@ -149,7 +149,7 @@ export default function ChatWidget() {
           onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           aria-label="Chat Assistance"
         >
-          <Image src="/chat.svg" alt="Chat" width={30} height={30} />
+          <Image src="/chat.svg" alt="Chat" width={35} height={35} />
         </button>
 
         {/* FAQ Icon (Bottom) */}
@@ -287,8 +287,8 @@ export default function ChatWidget() {
           <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {selectedFaq ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <button 
-                  onClick={() => setSelectedFaq(null)} 
+                <button
+                  onClick={() => setSelectedFaq(null)}
                   style={{ alignSelf: 'flex-start', background: 'none', border: 'none', color: '#0ea5e9', cursor: 'pointer', fontSize: '0.85rem', padding: 0 }}
                 >
                   ← Back to questions
@@ -307,7 +307,7 @@ export default function ChatWidget() {
                   onChange={(e) => setFaqSearch(e.target.value)}
                   style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)', marginBottom: '0.5rem' }}
                 />
-                
+
                 {filteredFaqs.length === 0 ? (
                   <p style={{ color: 'var(--muted)', fontSize: '0.85rem', textAlign: 'center', marginTop: '1rem' }}>No FAQs found.</p>
                 ) : (

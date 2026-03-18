@@ -611,7 +611,7 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <p style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 600, maxWidth: '280px' }}>
-                                    <span style={{ fontWeight: 800 }}>98% of students</span> would recommend "Naresh IT" to a friend
+                                    <span style={{ fontWeight: 800 }}>98% of students</span> would recommend "PravinSoft" to a friend
                                 </p>
                             </div>
                         </div>
@@ -706,7 +706,7 @@ export default function Home() {
                                 }}>
                                     <span style={{ position: 'absolute', top: '1rem', left: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>“</span>
                                     <p style={{ color: '#1e293b', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem', paddingTop: '1.5rem' }}>
-                                        I completed a data science course at Naresh IT Institute, where Omkar Sir was my trainer. His teaching was excellent, focusing on real-world company problems, and I gained practical experience through internships. I'm thankful to Sir for providing such valuable guidance.
+                                        I completed a data science course at PravinSoft Institute, where Omkar Sir was my trainer. His teaching was excellent, focusing on real-world company problems, and I gained practical experience through internships. I'm thankful to Sir for providing such valuable guidance.
                                     </p>
                                     <span style={{ position: 'absolute', bottom: '7rem', right: '1.5rem', fontSize: '2rem', color: '#64748b', fontWeight: 900 }}>”</span>
 
