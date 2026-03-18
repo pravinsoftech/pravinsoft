@@ -8,13 +8,14 @@ import type { NextRequest } from 'next/server';
 export function proxy(request: NextRequest) {
     const host = request.headers.get('host');
     const url = request.nextUrl.clone();
+    const pathname = url.pathname;
 
-    // Allow local development
+    // 2. Local Development Allow
     if (host?.includes('localhost') || host?.includes('127.0.0.1')) {
         return NextResponse.next();
     }
 
-    // Enforce www.pravinsoft.in in production
+    // 3. Enforce www.pravinsoft.in in production
     if (process.env.NODE_ENV === 'production' && host !== 'www.pravinsoft.in') {
         url.host = 'www.pravinsoft.in';
         url.protocol = 'https:';

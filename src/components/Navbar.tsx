@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useTheme } from './ThemeProvider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBox from './SearchBox';
 import Image from 'next/image';
+import { supabase } from '@/lib/supabase';
 
 type NavChild = {
     label: string;
@@ -72,6 +73,21 @@ const NAV_ITEMS: NavItem[] = [
 export default function Navbar() {
     const { theme, toggleTheme } = useTheme();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        async function getUser() {
+            const { data: { user } } = await supabase.auth.getUser();
+            setUser(user);
+        }
+        getUser();
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setUser(session?.user ?? null);
+        });
+
+        return () => subscription.unsubscribe();
+    }, []);
 
     const toggleMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -169,14 +185,26 @@ export default function Navbar() {
                     );
                 })}
 
-                <Link
-                    href="/login"
-                    className="btn-primary"
-                    style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                >
-                    Login
-                </Link>
+                {user ? (
+                    <Link
+                        href={user.user_metadata?.role === 'admin' ? '/admin' : '/student'}
+                        className="btn-primary"
+                        style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        <span style={{ fontSize: '1.2rem' }}>👤</span>
+                        {user.user_metadata?.full_name?.split(' ')[0] || 'Dashboard'}
+                    </Link>
+                ) : (
+                    <Link
+                        href="/login"
+                        className="btn-primary"
+                        style={{ padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        Login
+                    </Link>
+                )}
 
                 <button
                     onClick={toggleTheme}
