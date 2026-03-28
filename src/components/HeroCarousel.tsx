@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const HERO_IMAGES = [
   'https://res.cloudinary.com/dnv6cez4g/image/upload/v1772883587/it-specialist-types-code-dual-monitors-cozy-home-office_sywlbw.jpg',
@@ -72,16 +73,17 @@ export default function HeroCarousel() {
                   zIndex: 1,
                 }}
               />
-              <img
+              <Image
                 src={src}
                 alt=""
+                fill
+                unoptimized
                 style={{
-                  width: '100%',
-                  height: '80%',
                   objectFit: 'cover',
                   objectPosition: 'center',
                 }}
                 className="hero-slide-img"
+                priority={index === 0}
               />
             </div>
           ))}

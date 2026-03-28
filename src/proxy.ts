@@ -8,7 +8,6 @@ import type { NextRequest } from 'next/server';
 export function proxy(request: NextRequest) {
     const host = request.headers.get('host');
     const url = request.nextUrl.clone();
-    const pathname = url.pathname;
 
     // 2. Local Development Allow
     if (host?.includes('localhost') || host?.includes('127.0.0.1')) {

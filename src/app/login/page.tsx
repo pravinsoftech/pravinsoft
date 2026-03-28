@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [role, setRole] = useState<'admin' | 'student'>('student');
+  const [role] = useState<'admin' | 'student'>('student');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -73,8 +73,9 @@ export default function LoginPage() {
         }
         router.refresh();
       }
-    } catch (err: any) {
-      setError(err.message || 'Authentication failed');
+    } catch (err) {
+      const error = err as Error;
+      setError(error.message || 'Authentication failed');
     } finally {
       setIsLoading(false);
     }

@@ -48,7 +48,8 @@ export default function RegistrationForm() {
                 training_mode: '',
                 agreed: false
             });
-        } catch (error: any) {
+        } catch (err) {
+            const error = err as Error;
             setStatus({ type: 'error', message: error.message || 'Something went wrong. Please try again later.' });
         } finally {
             setIsSubmitting(false);

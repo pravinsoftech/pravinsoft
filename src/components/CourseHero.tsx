@@ -109,7 +109,7 @@ export default function CourseHero({
                         gap: 3rem;
                     }
                     .hero-title {
-                        font-size: 3rem;
+                        font-size: clamp(2.2rem, 8vw, 4.8rem);
                     }
                     .hero-subtitle {
                         font-size: 1.2rem;
@@ -158,7 +158,7 @@ export default function CourseHero({
 
             <div className="container" style={{ paddingTop: '2rem' }}>
                 {/* Breadcrumbs */}
-                <div style={{ display: 'flex', gap: '8px', fontSize: '13px', marginBottom: '1rem', color: '#64748b', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '4px 8px', fontSize: '12px', marginBottom: '1.5rem', color: '#64748b', flexWrap: 'wrap', alignItems: 'center' }}>
                     <a href="/courses" style={{ color: '#3b82f6', textDecoration: 'none' }}>Courses</a>
                     {breadcrumbs.map((crumb, index) => (
                         <React.Fragment key={index}>
@@ -217,12 +217,15 @@ export default function CourseHero({
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
-                                    gap: '0.5rem',
-                                    background: 'white'
+                                    gap: '0.4rem',
+                                    background: 'white',
+                                    width: '100%',
+                                    maxWidth: '100%',
+                                    boxSizing: 'border-box'
                                 }}>
                                     <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div style={{ color: '#1a367c', fontWeight: 800, fontSize: '14px' }}>CONGRATULATIONS</div>
-                                        <div style={{ background: '#1a367c', color: 'white', padding: '2px 8px', borderRadius: '2px', fontWeight: 900, fontSize: '18px' }}>254</div>
+                                        <div style={{ color: '#1a367c', fontWeight: 800, fontSize: 'clamp(11px, 3.5vw, 14px)' }}>CONGRATULATIONS</div>
+                                        <div style={{ background: '#1a367c', color: 'white', padding: '2px 6px', borderRadius: '2px', fontWeight: 900, fontSize: 'clamp(14px, 4.5vw, 18px)' }}>254</div>
                                     </div>
                                     <div style={{ fontSize: '10px', fontWeight: 700 }}>Students Placed in March 2026</div>
                                     

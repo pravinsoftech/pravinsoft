@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -63,7 +62,7 @@ export default function ShareModal({ isOpen, onClose, url }: ShareModalProps) {
         </button>
         
         <h3 style={{ color: '#ff6b6b', margin: '0 0 0.5rem 0', fontSize: '1.3rem', fontWeight: 700 }}>Share this course</h3>
-        <p style={{ color: '#555', margin: '0 0 1.5rem 0', fontSize: '0.95rem' }}>Share this course's details with your family & friends</p>
+        <p style={{ color: '#555', margin: '0 0 1.5rem 0', fontSize: '0.95rem' }}>Share this course&apos;s details with your family &amp; friends</p>
         
         <div style={{ display: 'flex', border: '1px solid #ddd', borderRadius: '4px', overflow: 'hidden', marginBottom: '1.5rem' }}>
           <input 

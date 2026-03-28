@@ -37,7 +37,7 @@ export default function WorkshopsPage() {
             tag: "On-Site / Online",
             tagColor: "#854d0e",
             tagBg: "#fef9c3",
-            desc: "Workshops designed and delivered for organisations and academic institutions. Content is tailored to the audience — whether it's freshers at an engineering college or a development team at an IT company.",
+            desc: "Workshops designed and delivered for organisations and academic institutions. Content is tailored to the audience — whether it&apos;s freshers at an engineering college or a development team at an IT company.",
             features: ["Customised curriculum", "On-site or online delivery", "Batch size from 20 to 200+", "Post-workshop support"],
         },
     ];
@@ -171,7 +171,7 @@ export default function WorkshopsPage() {
         },
         {
             q: "Are online and offline modes available?",
-            a: "Yes. Most workshops are available in both online (live, interactive) and offline (at our campus) modes. The mode is listed on each workshop's registration page.",
+            a: "Yes. Most workshops are available in both online (live, interactive) and offline (at our campus) modes. The mode is listed on each workshop&apos;s registration page.",
         },
     ];
 
@@ -249,7 +249,7 @@ export default function WorkshopsPage() {
                     Where Innovation Meets Hands-On Learning
                 </h2>
                 <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem", marginBottom: "1.25rem" }}>
-                    Not every learning goal requires a three-month course. Sometimes you need to get up to speed with a new framework this weekend, validate a technology before committing to it, or give your team a focused day of practical training on a tool they'll be using next month.
+                    Not every learning goal requires a three-month course. Sometimes you need to get up to speed with a new framework this weekend, validate a technology before committing to it, or give your team a focused day of practical training on a tool they&apos;ll be using next month.
                 </p>
                 <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem" }}>
                     PravinSoft workshops are designed exactly for that. Each workshop is a carefully crafted, time-boxed learning experience — run by the same senior professionals who lead our full programmes — with a clear outcome you can walk away with the same day. From free two-hour introductory sessions to five-day bootcamps, every format puts hands-on practice at the centre.
@@ -527,7 +527,7 @@ export default function WorkshopsPage() {
                         lineHeight: 1.8,
                         marginBottom: "1.25rem",
                     }}>
-                        "I attended the free Generative AI workshop at PravinSoft on a Saturday morning just out of curiosity. By 1 PM I had built my first working AI-powered app and enrolled in the full course. The workshop alone changed what I thought was possible to learn in a few hours."
+                        &quot;I attended the free Generative AI workshop at PravinSoft on a Saturday morning just out of curiosity. By 1 PM I had built my first working AI-powered app and enrolled in the full course. The workshop alone changed what I thought was possible to learn in a few hours.&quot;
                     </p>
                     <div style={{ fontWeight: 700, color: "#581c87", fontSize: "0.95rem" }}>
                         Arjun P. — Software Engineer, enrolled in AI/ML programme after the free workshop

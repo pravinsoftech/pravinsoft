@@ -249,7 +249,7 @@ export default function CorporateTrainingPage() {
           PravinSoft tailors its training solutions to address real business
           challenges — delivering more than just knowledge. We guarantee an ROI
           on your training investment to ensure our programs deliver real
-          business outcomes for the <strong>"Perfect Business Balance"</strong>.
+          business outcomes for the <strong>&quot;Perfect Business Balance&quot;</strong>.
         </p>
       </div>
 
@@ -267,8 +267,8 @@ export default function CorporateTrainingPage() {
             lineHeight: 1.7,
           }}
         >
-          Get in touch with our corporate training team today. We'll work with
-          you to design a programme that fits your organization's exact needs
+          Get in touch with our corporate training team today. We&apos;ll work with
+          you to design a programme that fits your organization&apos;s exact needs
           and schedule.
         </p>
         <button

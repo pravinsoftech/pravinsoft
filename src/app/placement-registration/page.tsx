@@ -58,7 +58,7 @@ export default function PlacementRegistrationPage() {
     {
       icon: "💼",
       title: "Job Portal Access",
-      desc: "Exclusive access to PravinSoft's internal job board, updated weekly with openings from companies that actively seek our graduates.",
+      desc: "Exclusive access to PravinSoft&apos;s internal job board, updated weekly with openings from companies that actively seek our graduates.",
     },
     {
       icon: "🔔",
@@ -725,7 +725,7 @@ export default function PlacementRegistrationPage() {
                   marginBottom: "0.4rem",
                 }}
               >
-                Anything else you'd like our placement team to know?
+                Anything else you&apos;d like our placement team to know?
               </label>
               <textarea
                 placeholder="e.g. I have a gap year to explain, I prefer remote-only roles, I am open to internship-to-hire positions..."
@@ -781,7 +781,7 @@ export default function PlacementRegistrationPage() {
               >
                 I confirm that I am a current or former student of PravinSoft
                 Technologies LLP. I consent to sharing my profile details with
-                PravinSoft's hiring partners for placement purposes.{" "}
+                PravinSoft&apos;s hiring partners for placement purposes.{" "}
                 <span style={{ color: "#ef4444" }}>*</span>
               </label>
             </div>
@@ -1213,7 +1213,7 @@ export default function PlacementRegistrationPage() {
                   flex: 1,
                 }}
               >
-                "{t.quote}"
+                &quot;{t.quote}&quot;
               </p>
               <div>
                 <div

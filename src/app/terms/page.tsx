@@ -3,7 +3,7 @@ import React from 'react';
 export default function Terms() {
     return (
         <main className="container" style={{ padding: '8rem 2rem 4rem' }}>
-            <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '2rem', fontWeight: 800 }}>Terms & Conditions</h1>
+            <h1 className="gradient-text" style={{ fontSize: '3rem', marginBottom: '2rem', fontWeight: 800 }}>Terms &amp; Conditions</h1>
             <div className="glass" style={{ padding: '3rem', lineHeight: '1.8', color: 'var(--muted)' }}>
                 <p style={{ marginBottom: '1.5rem', color: 'var(--foreground)', fontWeight: 600 }}>Version 1.2 | Effective: March 2026</p>
 

@@ -3,9 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import StudentLayout from '@/components/student/StudentLayout';
 import { supabase } from '@/lib/supabase';
+import Image from 'next/image';
+
+interface Course {
+  id: string;
+  course_name: string;
+  faculty_name: string;
+  start_date: string;
+  course_image_url?: string;
+  material_url?: string;
+}
 
 export default function StudentCourses() {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,7 +44,15 @@ export default function StudentCourses() {
             {courses.map((course) => (
               <div key={course.id} className="glass" style={{ display: 'flex', flexDirection: 'column' }}>
                 {course.course_image_url && (
-                  <img src={course.course_image_url} alt={course.course_name} style={{ width: '100%', height: '180px', objectFit: 'cover', borderTopLeftRadius: '12px', borderTopRightRadius: '12px' }} />
+                  <div style={{ position: 'relative', width: '100%', height: '180px' }}>
+                    <Image 
+                      src={course.course_image_url} 
+                      alt={course.course_name} 
+                      fill
+                      style={{ objectFit: 'cover', borderTopLeftRadius: '12px', borderTopRightRadius: '12px' }}
+                      unoptimized={true}
+                    />
+                  </div>
                 )}
                 <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{course.course_name}</h3>

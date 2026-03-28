@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 interface BlogCardProps {
-    id?: string;
     title: string;
     excerpt?: string;
     date?: string;
@@ -10,7 +9,7 @@ interface BlogCardProps {
     slug?: string;
 }
 
-export default function BlogCard({ id, title, excerpt, date, imageColor = "#3b82f6", slug = "#" }: BlogCardProps) {
+export default function BlogCard({ title, excerpt, date, imageColor = "#3b82f6", slug = "#" }: BlogCardProps) {
     return (
         <div style={{ 
             background: 'white', 

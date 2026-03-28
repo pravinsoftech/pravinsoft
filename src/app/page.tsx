@@ -18,7 +18,7 @@ export default function Home() {
                         style={{
                             fontSize: "clamp(1.5rem, 6vw, 2.2rem)",
                             fontWeight: 800,
-                            marginBottom: "2.5rem",
+                            marginBottom: "1.5rem",
                             textAlign: "center",
                             color: '#1e293b'
                         }}
@@ -195,7 +195,7 @@ export default function Home() {
                             </div>
                             <div style={{ flex: 1, padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                 <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#1e293b', marginBottom: '1rem' }}>Weekend Training</h3>
-                                <p style={{ color: '#1e293b', fontWeight: 700, fontSize: '1rem', marginBottom: '1rem' }}>Supercharge Your Weekends with PravinSoft's IT Training Programs</p>
+                                <p style={{ color: '#1e293b', fontWeight: 700, fontSize: '1rem', marginBottom: '1rem' }}>Supercharge Your Weekends with PravinSoft&apos;s IT Training Programs</p>
                                 <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
                                     Supercharge your career without quitting your job. Our weekend...
                                 </p>
@@ -266,7 +266,7 @@ export default function Home() {
                             marginBottom: '2rem',
                             letterSpacing: '-0.5px'
                         }}>
-                            Empowering <span style={{ color: '#94a3b8' }}>Futures</span>: PravinSoft's 5+ Year <span style={{ color: '#94a3b8' }}>Legacy</span> of Hands-On <span style={{ color: '#94a3b8' }}>Excellence</span>
+                            Empowering <span style={{ color: '#94a3b8' }}>Futures</span>: PravinSoft&apos;s 5+ Year <span style={{ color: '#94a3b8' }}>Legacy</span> of Hands-On <span style={{ color: '#94a3b8' }}>Excellence</span>
                         </h2>
 
                         <p style={{ color: '#94a3b8', fontSize: '1.1rem', maxWidth: '800px', lineHeight: 1.7 }}>
@@ -506,7 +506,7 @@ export default function Home() {
                                 <span style={{ color: '#06b6d4' }}>Corporate</span> Software Training
                             </h2>
                             <p style={{ color: '#94a3b8', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
-                                Elevate Your Team with PravinSoft's Corporate Training Programs PravinSoft offers tailored corporate training programs to enhance the skills and efficiency of your workforce. Our specialized courses are designed to meet the demands of the ever-evolving corporate landscape, ensuring your team stays ahead in the competitive market. PravinSoft offers tailored corporate training programs to enhance the skills and efficiency of your workforce. O...
+                                Elevate Your Team with PravinSoft&apos;s Corporate Training Programs PravinSoft offers tailored corporate training programs to enhance the skills and efficiency of your workforce. Our specialized courses are designed to meet the demands of the ever-evolving corporate landscape, ensuring your team stays ahead in the competitive market. PravinSoft offers tailored corporate training programs to enhance the skills and efficiency of your workforce. O...
                             </p>
                             <Link href="/services/corporate-trainings" style={{
                                 color: '#3b82f6',
@@ -575,8 +575,8 @@ export default function Home() {
 
                         {/* Header Area */}
                         <div style={{ paddingTop: '1rem' }}>
-                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
-                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>PravinSoft's</span> Students Placed in the Best Companies
+                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 400, color: '#111827', lineHeight: 1.1, marginBottom: '1rem' }}>
+                                <span style={{ color: '#06b6d4', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>PravinSoft&apos;s</span> Students Placed in the Best Companies
                             </h2>
 
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
@@ -595,15 +595,15 @@ export default function Home() {
                                     </svg>
                                 </div>
                                 <p style={{ fontSize: '1.1rem', color: '#111827', fontWeight: 600, maxWidth: '280px' }}>
-                                    <span style={{ fontWeight: 800 }}>98% of students</span> would recommend "PravinSoft" to a friend
+                                    <span style={{ fontWeight: 800 }}>98% of students</span> would recommend &quot;PravinSoft&quot; to a friend
                                 </p>
                             </div>
                         </div>
 
-                        {/* Testimonials Masonry/Grid */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', padding: '1rem' }}>
+                        {/* Testimonials Masonry/Grid - Stacked vertically as requested */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '1rem' }}>
                             {/* Column 1 */}
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '4rem' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '2rem' }}>
                                 {/* Testimonial 1 */}
                                 <div className="glass" style={{
                                     background: 'white',
@@ -765,15 +765,15 @@ export default function Home() {
 
                         {/* Header Area */}
                         <div>
-                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
-                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>Top MNC's</span> are our Hiring Partners
+                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 300, color: '#111827', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+                                <span style={{ color: '#06b6d4', textDecoration: '', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>Top MNC&apos;s</span> are our Hiring Partners
                             </h2>
 
                             <p style={{ fontSize: '1.1rem', color: '#64748b', lineHeight: 1.6, maxWidth: '350px' }}>
                                 Our students are placed in leading multinational companies across the globe. We provide 100% placement assistance to all our students.
                             </p>
 
-                            <div style={{ marginTop: '2.5rem' }}>
+                            <div style={{ marginTop: '1rem' }}>
                                 <button style={{
                                     background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
                                     color: 'white',

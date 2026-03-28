@@ -50,7 +50,6 @@ export default function FullStackPageClient({ courses, batches }: Props) {
                                     course_image_url={course.course_image_url}
                                     faculty_name={courseBatch?.faculty?.name || 'Academic Team'}
                                     start_date={courseBatch?.start_date || new Date().toISOString()}
-                                    time={courseBatch?.start_time || '9:00 AM'}
                                     registration_url={`/courses/${course.id}`}
                                 />
                             );

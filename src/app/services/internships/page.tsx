@@ -84,7 +84,7 @@ export default function InternshipsPage() {
                     opacity: 0.9,
                     lineHeight: 1.75,
                 }}>
-                    PravinSoft's internship programme bridges the gap between classroom learning and real-world industry practice. Work on live projects, get mentored by experts, and walk away job-ready.
+                    PravinSoft&apos;s internship programme bridges the gap between classroom learning and real-world industry practice. Work on live projects, get mentored by experts, and walk away job-ready.
                 </p>
                 <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
                     <button style={{

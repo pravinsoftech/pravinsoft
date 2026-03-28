@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import CourseSidebar from './CourseSidebar';
 import CoursePageTabs from './CoursePageTabs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,13 +35,13 @@ export default function FullStackSoftwareTestingOnlineTraining() {
                 if (error) throw error;
 
                 // Format arrays if needed (Supabase edge case) and filter for Software Testing
-                const formatted = (data || []).map((b: any) => ({
+                const formatted = (data || []).map((b) => ({
                     ...b,
                     course: Array.isArray(b.course) ? b.course[0] : b.course,
                     faculty: Array.isArray(b.faculty) ? b.faculty[0] : b.faculty,
                 })).filter(b =>
                     b.course?.course_name?.toLowerCase().includes('testing')
-                );
+                ) as unknown as UpcomingBatchRow[];
 
                 setBatches(formatted);
             } catch (err) {
@@ -251,7 +250,7 @@ export default function FullStackSoftwareTestingOnlineTraining() {
                                             <li>Abstraction & Abstract Classes</li>
                                             <li>Interfaces & Polymorphism</li>
                                             <li>Method Overloading & Overriding</li>
-                                            <li>'this' and 'super' Keywords</li>
+                                            <li>&apos;this&apos; and &apos;super&apos; Keywords</li>
                                         </ul>
                                     </div>
                                     <div className="curriculum-module">

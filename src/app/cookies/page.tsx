@@ -17,7 +17,7 @@ export default function CookiesPolicy() {
                     <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem' }}>
                         <li><strong>Essential Cookies:</strong> Required for secure login and platform navigation.</li>
                         <li><strong>Analytical Cookies:</strong> Help us track traffic patterns to optimise our technical blog and course pages.</li>
-                        <li><strong>Preferences:</strong> Remember your settings so you don't have to re-enter them.</li>
+                        <li><strong>Preferences:</strong> Remember your settings so you don&apos;t have to re-enter them.</li>
                     </ul>
                 </section>
 

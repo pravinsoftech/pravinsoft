@@ -27,7 +27,8 @@ export default function ContactForm() {
 
             setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
             setFormData({ full_name: '', email: '', subject: '', message: '' });
-        } catch (error: any) {
+        } catch (err) {
+            const error = err as Error;
             setStatus({ type: 'error', message: error.message || 'Something went wrong. Please try again later.' });
         } finally {
             setIsSubmitting(false);

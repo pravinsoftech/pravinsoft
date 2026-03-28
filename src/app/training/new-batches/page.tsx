@@ -499,7 +499,7 @@ export default async function NewBatchesPage() {
             marginBottom: "0.75rem",
           }}
         >
-          Can't Find the Right Batch?
+          Can&apos;t Find the Right Batch?
         </h2>
         <p
           style={{

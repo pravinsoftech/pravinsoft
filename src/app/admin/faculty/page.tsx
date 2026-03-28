@@ -4,22 +4,74 @@ import React, { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { supabase } from '@/lib/supabase';
 
+interface FacultyMember {
+  id: string;
+  name: string;
+  email: string;
+  mobile?: string;
+  educational_qualification?: string;
+  certification?: string;
+  experience?: string;
+  created_at?: string;
+}
+
+const FacultyForm = ({ member, onCancel, onSave }: { member: FacultyMember | null, onCancel: () => void, onSave: (e: React.FormEvent<HTMLFormElement>) => void }) => (
+  <div className="glass" style={{ padding: '2rem', marginBottom: '2rem' }}>
+    <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>
+      {member ? 'Edit Faculty' : 'Add New Faculty'}
+    </h2>
+    <form onSubmit={onSave} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Name</label>
+        <input name="name" defaultValue={member?.name} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Email</label>
+        <input name="email" type="email" defaultValue={member?.email} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Mobile</label>
+        <input name="mobile" defaultValue={member?.mobile} className="glass" style={{ padding: '0.75rem' }} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Education</label>
+        <input name="educational_qualification" defaultValue={member?.educational_qualification} className="glass" style={{ padding: '0.75rem' }} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Certification</label>
+        <input name="certification" defaultValue={member?.certification} className="glass" style={{ padding: '0.75rem' }} />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Experience</label>
+        <textarea name="experience" defaultValue={member?.experience} className="glass" style={{ padding: '0.75rem', resize: 'none' }} rows={3}></textarea>
+      </div>
+      <div style={{ display: 'flex', gap: '1rem', gridColumn: 'span 2' }}>
+        <button type="submit" className="btn-primary">Save Changes</button>
+        <button type="button" className="glass" style={{ padding: '0.75rem 1.5rem' }} onClick={onCancel}>Cancel</button>
+      </div>
+    </form>
+  </div>
+);
+
 export default function AdminFaculty() {
-  const [faculty, setFaculty] = useState<any[]>([]);
+  const [faculty, setFaculty] = useState<FacultyMember[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editingFaculty, setEditingFaculty] = useState<any | null>(null);
+  const [editingFaculty, setEditingFaculty] = useState<FacultyMember | null>(null);
   const [isAdding, setIsAdding] = useState(false);
 
-  useEffect(() => {
-    fetchFaculty();
-  }, []);
-
-  async function fetchFaculty() {
-    setLoading(true);
+  const fetchFaculty = async (showLoading = true) => {
+    if (showLoading) setLoading(true);
     const { data } = await supabase.from('faculty').select('*').order('created_at', { ascending: false });
     setFaculty(data || []);
     setLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchFaculty(false);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,44 +99,6 @@ export default function AdminFaculty() {
     }
   };
 
-  const FacultyForm = ({ member, onCancel }: { member?: any, onCancel: () => void }) => (
-    <div className="glass" style={{ padding: '2rem', marginBottom: '2rem' }}>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-        {member ? 'Edit Faculty' : 'Add New Faculty'}
-      </h2>
-      <form onSubmit={handleSave} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Name</label>
-          <input name="name" defaultValue={member?.name} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Email</label>
-          <input name="email" type="email" defaultValue={member?.email} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Mobile</label>
-          <input name="mobile" defaultValue={member?.mobile} className="glass" style={{ padding: '0.75rem' }} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Education</label>
-          <input name="educational_qualification" defaultValue={member?.educational_qualification} className="glass" style={{ padding: '0.75rem' }} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Certification</label>
-          <input name="certification" defaultValue={member?.certification} className="glass" style={{ padding: '0.75rem' }} />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Experience</label>
-          <textarea name="experience" defaultValue={member?.experience} className="glass" style={{ padding: '0.75rem', resize: 'none' }} rows={3}></textarea>
-        </div>
-        <div style={{ display: 'flex', gap: '1rem', gridColumn: 'span 2' }}>
-          <button type="submit" className="btn-primary">Save Changes</button>
-          <button type="button" className="glass" style={{ padding: '0.75rem 1.5rem' }} onClick={onCancel}>Cancel</button>
-        </div>
-      </form>
-    </div>
-  );
-
   return (
     <AdminLayout>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -101,7 +115,7 @@ export default function AdminFaculty() {
         </div>
 
         {(isAdding || editingFaculty) && (
-          <FacultyForm member={editingFaculty} onCancel={() => { setIsAdding(false); setEditingFaculty(null); }} />
+          <FacultyForm member={editingFaculty} onCancel={() => { setIsAdding(false); setEditingFaculty(null); }} onSave={handleSave} />
         )}
 
         {loading ? (

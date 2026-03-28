@@ -4,10 +4,29 @@ import React, { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { supabase } from '@/lib/supabase';
 
+interface ContactSubmission {
+  id: string;
+  created_at: string;
+  full_name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface StudentRegistration {
+  id: string;
+  created_at: string;
+  name: string;
+  email: string;
+  phone: string;
+  city: string;
+  payment_status?: string;
+}
+
 export default function AdminRegistrations() {
   const [activeTab, setActiveTab] = useState<'contacts' | 'students'>('contacts');
-  const [contacts, setContacts] = useState<any[]>([]);
-  const [students, setStudents] = useState<any[]>([]);
+  const [contacts, setContacts] = useState<ContactSubmission[]>([]);
+  const [students, setStudents] = useState<StudentRegistration[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

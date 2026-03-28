@@ -3,10 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import StudentLayout from '@/components/student/StudentLayout';
 import { supabase } from '@/lib/supabase';
+import { User } from '@supabase/supabase-js';
+import Image from 'next/image';
+
+interface Course {
+  id: string;
+  course_name: string;
+  faculty_name: string;
+  course_image_url?: string;
+}
 
 export default function StudentDashboard() {
-  const [user, setUser] = useState<any>(null);
-  const [courses, setCourses] = useState<any[]>([]);
+  const [user, setUser] = useState<User | null>(null);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -66,7 +75,15 @@ export default function StudentDashboard() {
               {courses.map((course) => (
                 <div key={course.id} className="glass" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                    {course.course_image_url && (
-                    <img src={course.course_image_url} alt={course.course_name} style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px' }} />
+                    <div style={{ position: 'relative', width: '100%', height: '150px' }}>
+                      <Image 
+                        src={course.course_image_url} 
+                        alt={course.course_name} 
+                        fill
+                        style={{ objectFit: 'cover', borderRadius: '8px' }}
+                        unoptimized={true}
+                      />
+                    </div>
                   )}
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>{course.course_name}</h3>
                   <div style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>By {course.faculty_name}</div>

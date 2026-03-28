@@ -14,6 +14,18 @@ type Variant =
   | 'trending'
   | 'internship';
 
+interface Course {
+  id: string;
+  course_name: string;
+  faculty_name?: string;
+  start_date?: string;
+  time?: string;
+  material_url?: string;
+  registration_url?: string;
+  course_image_url?: string;
+  faculty?: { name: string };
+}
+
 interface CoursesGridProps {
   variant: Variant;
   title: string;
@@ -21,7 +33,7 @@ interface CoursesGridProps {
 }
 
 export default function CoursesGrid({ variant, title, subtitle }: CoursesGridProps) {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -92,10 +104,8 @@ export default function CoursesGrid({ variant, title, subtitle }: CoursesGridPro
                     key={course.id}
                     id={course.id}
                     course_name={course.course_name}
-                    faculty_name={variant === 'all' ? course.faculty_name : (course.faculty?.name || course.faculty_name || 'Academic Team')}
-                    start_date={course.start_date}
-                    time={course.time}
-                    material_url={course.material_url}
+                    faculty_name={variant === 'all' ? (course.faculty_name || 'Academic Team') : (course.faculty?.name || course.faculty_name || 'Academic Team')}
+                    start_date={course.start_date || new Date().toISOString()}
                     registration_url={course.registration_url}
                     course_image_url={course.course_image_url}
                   />

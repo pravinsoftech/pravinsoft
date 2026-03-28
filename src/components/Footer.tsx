@@ -53,7 +53,7 @@ export default function Footer() {
                         <h5 style={{ color: 'var(--foreground)', marginBottom: '1.5rem', fontSize: '1rem' }}>Governance</h5>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             <li><Link href="/privacy" style={{ color: '#71717a', fontSize: '0.9rem' }}>Privacy Policy</Link></li>
-                            <li><Link href="/terms" style={{ color: '#71717a', fontSize: '0.9rem' }}>Terms & Conditions</Link></li>
+                            <li><Link href="/terms" style={{ color: '#71717a', fontSize: '0.9rem' }}>Terms &amp; Conditions</Link></li>
                             <li><Link href="/refund" style={{ color: '#71717a', fontSize: '0.9rem' }}>Refund Policy</Link></li>
                             <li><Link href="/disclaimer" style={{ color: '#71717a', fontSize: '0.9rem' }}>Legal Disclaimer</Link></li>
                             <li><Link href="/cookies" style={{ color: '#71717a', fontSize: '0.9rem' }}>Cookies Policy</Link></li>

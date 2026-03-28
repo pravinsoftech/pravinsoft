@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import CourseSidebar from './CourseSidebar';
 import CoursePageTabs from './CoursePageTabs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,13 +35,13 @@ export default function JobAssistance() {
                 if (error) throw error;
 
                 // Format arrays if needed (Supabase edge case) and filter for Software Testing
-                const formatted = (data || []).map((b: any) => ({
+                const formatted = (data || []).map((b) => ({
                     ...b,
                     course: Array.isArray(b.course) ? b.course[0] : b.course,
                     faculty: Array.isArray(b.faculty) ? b.faculty[0] : b.faculty,
                 })).filter(b =>
                     b.course?.course_name?.toLowerCase().includes('testing')
-                );
+                ) as unknown as UpcomingBatchRow[];
 
                 setBatches(formatted);
             } catch (err) {
@@ -112,14 +111,14 @@ export default function JobAssistance() {
 
 
     return (
-        <div style={{ flex: 1, overflow: 'visible' }}>
-            <h1 style={{ fontSize: '1.8rem', fontWeight: 700, color: '#000', marginBottom: '1.5rem', letterSpacing: '-0.5px' }}>Job Assistance</h1>
+        <div style={{ flex: 1, overflow: 'hidden', maxWidth: '100%' }}>
+            <h1 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#000', marginBottom: '1.25rem', letterSpacing: '-0.5px' }}>Job Assistance</h1>
 
             {/* New Course Page Tabs Component */}
             <CoursePageTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
             {/* Content Sections - Now all rendered sequentially */}
-            <div style={{ color: '#334155', lineHeight: 1.6, fontSize: '15.5px', overflow: 'visible' }}>
+            <div style={{ color: '#334155', lineHeight: 1.6, fontSize: '15px', overflow: 'hidden', maxWidth: '100%' }}>
                 <div id="overview" className="section-container" style={{ marginBottom: '4rem' }}>
                     <div className="animate-fade-in">
                         <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#000', marginBottom: '1rem' }}>Course Overview</h2>
@@ -251,7 +250,7 @@ export default function JobAssistance() {
                                             <li>Abstraction & Abstract Classes</li>
                                             <li>Interfaces & Polymorphism</li>
                                             <li>Method Overloading & Overriding</li>
-                                            <li>'this' and 'super' Keywords</li>
+                                            <li>&apos;this&apos; and &apos;super&apos; Keywords</li>
                                         </ul>
                                     </div>
                                     <div className="curriculum-module">
@@ -611,7 +610,7 @@ export default function JobAssistance() {
                 <div id="training-features" className="section-container" style={{ marginBottom: '4rem', paddingTop: '1rem' }}>
                     <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#000', marginBottom: '2.5rem' }}>Our Key Learning Advantages</h2>
                     <div className="animate-fade-in">
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
                             {[
                                 { id: "curriculum", title: "Comprehensive Curriculum", desc: "Master software testing with a curriculum covering manual, automation, API, and performance testing.", icon: "/images/Asset 1.svg" },
                                 { id: "projects", title: "Hands-On Projects", desc: "Apply testing skills to real-world software applications for practical experience and mastery.", icon: "/images/Asset 2.svg" },
@@ -635,7 +634,7 @@ export default function JobAssistance() {
                 <div id="reviews" className="section-container" style={{ marginBottom: '4rem', paddingTop: '1rem' }}>
                     <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#000', marginBottom: '1.5rem' }}>Student Reviews</h2>
                     <div className="animate-fade-in">
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
                             {[
                                 { name: "Pranit Jadhav", text: "I am a working professional and this testing training helped me upgrade my skills. Pravin Sir explains every topic patiently and clears all doubts.", initial: "P", color: "#3b82f6" },
                                 { name: "Nikhil Gadhak", text: "One of the best mentorships focusing on practical, in-depth learning rather than just theory. Highly recommended for career growth in IT.", initial: "N", color: "#4338ca" },
@@ -707,6 +706,14 @@ export default function JobAssistance() {
             <style jsx>{`
                 .section-container {
                     scroll-margin-top: 160px;
+                    max-width: 100%;
+                    overflow-x: hidden;
+                    boxSizing: border-box;
+                }
+                @media (max-width: 768px) {
+                    .section-container {
+                        padding: 0 0.5rem;
+                    }
                 }
                 .animate-fade-in {
                     animation: fadeIn 0.4s ease-out;

@@ -4,22 +4,69 @@ import React, { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { supabase } from '@/lib/supabase';
 
+interface Course {
+  id: string;
+  course_name: string;
+  faculty_name: string;
+  start_date: string;
+  time: string;
+  course_image_url?: string;
+  created_at?: string;
+}
+
+const CourseForm = ({ course, onCancel, onSave }: { course: Course | null, onCancel: () => void, onSave: (e: React.FormEvent<HTMLFormElement>) => void }) => (
+  <div className="glass" style={{ padding: '2rem', marginBottom: '2rem' }}>
+    <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>
+      {course ? 'Edit Course' : 'Add New Course'}
+    </h2>
+    <form onSubmit={onSave} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Course Name</label>
+        <input name="course_name" defaultValue={course?.course_name} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Faculty Name</label>
+        <input name="faculty_name" defaultValue={course?.faculty_name} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Start Date</label>
+        <input name="start_date" type="date" defaultValue={course?.start_date} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Time</label>
+        <input name="time" defaultValue={course?.time} className="glass" style={{ padding: '0.75rem' }} required />
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
+        <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Image URL</label>
+        <input name="course_image_url" defaultValue={course?.course_image_url} className="glass" style={{ padding: '0.75rem' }} />
+      </div>
+      <div style={{ display: 'flex', gap: '1rem', gridColumn: 'span 2' }}>
+        <button type="submit" className="btn-primary">Save Changes</button>
+        <button type="button" className="glass" style={{ padding: '0.75rem 1.5rem' }} onClick={onCancel}>Cancel</button>
+      </div>
+    </form>
+  </div>
+);
+
 export default function AdminCourses() {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editingCourse, setEditingCourse] = useState<any | null>(null);
+  const [editingCourse, setEditingCourse] = useState<Course | null>(null);
   const [isAdding, setIsAdding] = useState(false);
 
-  useEffect(() => {
-    fetchCourses();
-  }, []);
-
-  async function fetchCourses() {
-    setLoading(true);
+  const fetchCourses = async (showLoading = true) => {
+    if (showLoading) setLoading(true);
     const { data } = await supabase.from('courses').select('*').order('created_at', { ascending: false });
     setCourses(data || []);
     setLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchCourses(false);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,40 +94,6 @@ export default function AdminCourses() {
     }
   };
 
-  const CourseForm = ({ course, onCancel }: { course?: any, onCancel: () => void }) => (
-    <div className="glass" style={{ padding: '2rem', marginBottom: '2rem' }}>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1.5rem' }}>
-        {course ? 'Edit Course' : 'Add New Course'}
-      </h2>
-      <form onSubmit={handleSave} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Course Name</label>
-          <input name="course_name" defaultValue={course?.course_name} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Faculty Name</label>
-          <input name="faculty_name" defaultValue={course?.faculty_name} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Start Date</label>
-          <input name="start_date" type="date" defaultValue={course?.start_date} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Time</label>
-          <input name="time" defaultValue={course?.time} className="glass" style={{ padding: '0.75rem' }} required />
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', gridColumn: 'span 2' }}>
-          <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Image URL</label>
-          <input name="course_image_url" defaultValue={course?.course_image_url} className="glass" style={{ padding: '0.75rem' }} />
-        </div>
-        <div style={{ display: 'flex', gap: '1rem', gridColumn: 'span 2' }}>
-          <button type="submit" className="btn-primary">Save Changes</button>
-          <button type="button" className="glass" style={{ padding: '0.75rem 1.5rem' }} onClick={onCancel}>Cancel</button>
-        </div>
-      </form>
-    </div>
-  );
-
   return (
     <AdminLayout>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -97,7 +110,7 @@ export default function AdminCourses() {
         </div>
 
         {(isAdding || editingCourse) && (
-          <CourseForm course={editingCourse} onCancel={() => { setIsAdding(false); setEditingCourse(null); }} />
+          <CourseForm course={editingCourse} onCancel={() => { setIsAdding(false); setEditingCourse(null); }} onSave={handleSave} />
         )}
 
         {loading ? (

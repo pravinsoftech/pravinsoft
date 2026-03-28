@@ -92,7 +92,8 @@ export default function ChatWidget() {
       setStatus({ type: 'success', message: 'Thank you! We will reach out to you shortly.' });
       setFormData({ name: '', mobile: '', email: '', course_interest: '' });
       setTimeout(() => setIsLeadOpen(false), 3000);
-    } catch (error: any) {
+    } catch (err) {
+      const error = err as Error;
       setStatus({ type: 'error', message: error.message || 'Something went wrong.' });
     } finally {
       setIsSubmitting(false);

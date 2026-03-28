@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function NewsLetterForm() {
     return (
         <div style={{ display: 'flex', gap: '0.5rem', width: '100%' }}>

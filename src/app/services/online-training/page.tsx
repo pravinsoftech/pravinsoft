@@ -118,7 +118,7 @@ export default function OnlineTrainingPage() {
           opacity: 0.9,
           lineHeight: 1.75,
         }}>
-          PravinSoft's online training programme brings expert-led, live instruction directly to you — wherever you are in India or across the globe. Study at your pace with real projects, recorded sessions, and dedicated support.
+          PravinSoft&apos;s online training programme brings expert-led, live instruction directly to you — wherever you are in India or across the globe. Study at your pace with real projects, recorded sessions, and dedicated support.
         </p>
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
           <button style={{
@@ -158,7 +158,7 @@ export default function OnlineTrainingPage() {
           Learn from Anywhere, Without Compromising Quality
         </h2>
         <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem", marginBottom: "1.25rem" }}>
-          PravinSoft's online training is a live, instructor-led programme delivered over the internet — designed for students and professionals who cannot attend in-person sessions at our training centres but refuse to settle for a lesser learning experience.
+          PravinSoft&apos;s online training is a live, instructor-led programme delivered over the internet — designed for students and professionals who cannot attend in-person sessions at our training centres but refuse to settle for a lesser learning experience.
         </p>
         <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem" }}>
           Our online sessions are not recorded lectures played on loop. Every class is a live interaction with a subject-matter expert, with real-time Q&amp;A, collaborative exercises, and hands-on lab work. You get the full depth of classroom training — from the comfort of your home or office.

@@ -18,7 +18,7 @@ export default function WeekendTrainingPage() {
         {
             icon: "🧪",
             title: "Hands-On Labs Every Session",
-            desc: "Each class includes dedicated lab time. You don't just watch the instructor — you practise the concept in a real environment before the session ends.",
+            desc: "Each class includes dedicated lab time. You don&apos;t just watch the instructor — you practise the concept in a real environment before the session ends.",
         },
         {
             icon: "👨‍🏫",
@@ -28,7 +28,7 @@ export default function WeekendTrainingPage() {
         {
             icon: "💬",
             title: "Weekday Doubt Support",
-            desc: "Questions don't wait for the weekend. Our teaching assistants are available on weekdays via chat and scheduled calls to keep you unblocked between sessions.",
+            desc: "Questions don&apos;t wait for the weekend. Our teaching assistants are available on weekdays via chat and scheduled calls to keep you unblocked between sessions.",
         },
         {
             icon: "📁",
@@ -92,7 +92,7 @@ export default function WeekendTrainingPage() {
         { step: "03", title: "Enrol & Get Access", desc: "Complete enrolment and instantly receive your student portal credentials, course materials, and batch meeting link." },
         { step: "04", title: "Attend Live Sessions", desc: "Join live instructor-led classes every Saturday and Sunday. Ask questions, work through labs, and stay on track." },
         { step: "05", title: "Build Your Project", desc: "Work on your real-time capstone project across the duration of the course with regular mentor check-ins." },
-        { step: "06", title: "Certify & Place", desc: "Complete your assessment, earn your certificate, and tap into PravinSoft's placement assistance network." },
+        { step: "06", title: "Certify & Place", desc: "Complete your assessment, earn your certificate, and tap into PravinSoft&apos;s placement assistance network." },
     ];
 
     const stats = [
@@ -141,7 +141,7 @@ export default function WeekendTrainingPage() {
                     opacity: 0.9,
                     lineHeight: 1.75,
                 }}>
-                    PravinSoft's weekend training programme is built for people who cannot stop their lives to learn — but refuse to stop learning. Expert-led live sessions every Saturday and Sunday, with full weekday doubt support, session recordings, and real-world project work.
+                    PravinSoft&apos;s weekend training programme is built for people who cannot stop their lives to learn — but refuse to stop learning. Expert-led live sessions every Saturday and Sunday, with full weekday doubt support, session recordings, and real-world project work.
                 </p>
                 <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
                     <button style={{
@@ -181,10 +181,10 @@ export default function WeekendTrainingPage() {
                     Full-Depth Training, Zero Weekday Disruption
                 </h2>
                 <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem", marginBottom: "1.25rem" }}>
-                    The biggest barrier to learning for most working professionals and final-year students isn't motivation — it's time. Weekday evening courses eat into rest time. Full-time programmes mean quitting your job or pausing your studies. Neither is realistic.
+                    The biggest barrier to learning for most working professionals and final-year students isn&apos;t motivation — it&apos;s time. Weekday evening courses eat into rest time. Full-time programmes mean quitting your job or pausing your studies. Neither is realistic.
                 </p>
                 <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem" }}>
-                    PravinSoft's weekend programme is designed to remove that barrier entirely. You get the same depth of instruction, the same industry-experienced faculty, and the same real-world project work as our full-time batches — scheduled entirely on Saturdays and Sundays so your weekdays remain yours.
+                    PravinSoft&apos;s weekend programme is designed to remove that barrier entirely. You get the same depth of instruction, the same industry-experienced faculty, and the same real-world project work as our full-time batches — scheduled entirely on Saturdays and Sundays so your weekdays remain yours.
                 </p>
             </div>
 
@@ -225,7 +225,7 @@ export default function WeekendTrainingPage() {
                     Everything Included in Every Weekend Batch
                 </h2>
                 <p style={{ color: "#64748b", textAlign: "center", maxWidth: "580px", margin: "0 auto 2.5rem" }}>
-                    Weekend doesn't mean watered-down. Every feature of our full-time programmes comes standard.
+                    Weekend doesn&apos;t mean watered-down. Every feature of our full-time programmes comes standard.
                 </p>
                 <div style={{
                     display: "grid",
@@ -412,7 +412,7 @@ export default function WeekendTrainingPage() {
                         lineHeight: 1.8,
                         marginBottom: "1.25rem",
                     }}>
-                        "I was working full-time and couldn't commit to a weekday batch. The weekend programme at PravinSoft let me complete my Python and Data Science course over three months without taking a single day off work. The doubt support during the week kept me from ever falling behind."
+                        &quot;I was working full-time and couldn&apos;t commit to a weekday batch. The weekend programme at PravinSoft let me complete my Python and Data Science course over three months without taking a single day off work. The doubt support during the week kept me from ever falling behind.&quot;
                     </p>
                     <div style={{ fontWeight: 700, color: "#581c87", fontSize: "0.95rem" }}>
                         Sneha R. — Data Analyst, transitioned from a non-IT background

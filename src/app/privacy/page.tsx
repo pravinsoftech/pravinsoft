@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
                 <section style={{ marginBottom: '2.5rem' }}>
                     <h2 style={{ color: 'var(--foreground)', marginBottom: '1rem', fontSize: '1.5rem' }}>1. Introduction</h2>
                     <p>
-                        Pravinsoft Technologies LLP ("The Institute", "We", "Us", or "Our"), located in Hinjewadi, Pune, is committed to protecting the privacy of our students and website visitors. This Privacy Policy outlines how we collect, use, and safeguard your personal information in accordance with Indian IT laws.
+                        Pravinsoft Technologies LLP (&quot;The Institute&quot;, &quot;We&quot;, &quot;Us&quot;, or &quot;Our&quot;), located in Hinjewadi, Pune, is committed to protecting the privacy of our students and website visitors. This Privacy Policy outlines how we collect, use, and safeguard your personal information in accordance with Indian IT laws.
                     </p>
                 </section>
 

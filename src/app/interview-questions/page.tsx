@@ -120,7 +120,7 @@ export default function InterviewQuestionsPage() {
   const tips = [
     {
       icon: "📖",
-      title: "Understand, Don't Memorise",
+      title: "Understand, Don&apos;t Memorise",
       desc: "Interviewers ask follow-up questions to test depth. If you can explain the concept in your own words with a real example, you are better prepared than someone who has memorised a definition.",
     },
     {
@@ -615,7 +615,7 @@ export default function InterviewQuestionsPage() {
           }}
         >
           Questions are only half the preparation. These six habits separate
-          candidates who get offers from those who don't.
+          candidates who get offers from those who don&apos;t.
         </p>
         <div
           style={{
@@ -821,7 +821,7 @@ export default function InterviewQuestionsPage() {
             lineHeight: 1.75,
           }}
         >
-          PravinSoft students don't just study interview questions — they build
+          PravinSoft students don&apos;t just study interview questions — they build
           real projects, get mentor feedback, and practise mock interviews before
           they ever walk into a room. Enrol in a course and get full access to
           our placement preparation programme.

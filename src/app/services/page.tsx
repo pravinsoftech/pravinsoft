@@ -7,7 +7,7 @@ export default function ServicesPage() {
       tag: "For Teams",
       tagColor: "#581c87",
       tagBg: "#f3e8ff",
-      desc: "Customised, ROI-guaranteed training programmes delivered at your office or our campus. We tailor content to your team's stack, experience level, and project requirements — from onboarding freshers to upskilling senior developers.",
+      desc: "Customised, ROI-guaranteed training programmes delivered at your office or our campus. We tailor content to your team&apos;s stack, experience level, and project requirements — from onboarding freshers to upskilling senior developers.",
       highlights: ["On-site & online delivery", "Content tailored per project", "Guaranteed ROI", "20 to 200+ participants"],
     },
     {
@@ -88,7 +88,7 @@ export default function ServicesPage() {
 
   const testimonials = [
     {
-      quote: "The corporate training PravinSoft delivered to our team was the best we've had. Content was tailored to our exact stack and the ROI was visible within weeks.",
+      quote: "The corporate training PravinSoft delivered to our team was the best we&apos;ve had. Content was tailored to our exact stack and the ROI was visible within weeks.",
       name: "Vikram S.",
       role: "Engineering Manager, IT Services Company",
     },
@@ -98,7 +98,7 @@ export default function ServicesPage() {
       role: "Data Analyst — transitioned from non-IT",
     },
     {
-      quote: "The internship gave me everything a college degree didn't — real code, real deadlines, a real mentor, and a certificate that actually meant something to recruiters.",
+      quote: "The internship gave me everything a college degree didn&apos;t — real code, real deadlines, a real mentor, and a certificate that actually meant something to recruiters.",
       name: "Arjun P.",
       role: "Junior Software Engineer, Infosys",
     },
@@ -369,7 +369,7 @@ export default function ServicesPage() {
                 lineHeight: 1.8,
                 margin: 0,
                 flex: 1,
-              }}>"{t.quote}"</p>
+              }}>&quot;{t.quote}&quot;</p>
               <div>
                 <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "#581c87" }}>{t.name}</div>
                 <div style={{ fontSize: "0.8rem", color: "#94a3b8", marginTop: "0.15rem" }}>{t.role}</div>

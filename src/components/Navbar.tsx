@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import SearchBox from './SearchBox';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
+import { User } from '@supabase/supabase-js';
 
 type NavChild = {
     label: string;
@@ -73,7 +74,7 @@ const NAV_ITEMS: NavItem[] = [
 export default function Navbar() {
     const { theme, toggleTheme } = useTheme();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         async function getUser() {

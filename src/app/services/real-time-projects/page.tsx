@@ -86,7 +86,7 @@ export default function RealTimeProjectsPage() {
     {
       icon: "🧠",
       title: "Bridge Theory and Practice",
-      desc: "Concepts taught in class are immediately applied in a real codebase — so skills stick and don't fade after the course ends.",
+      desc: "Concepts taught in class are immediately applied in a real codebase — so skills stick and don&apos;t fade after the course ends.",
     },
     {
       icon: "💼",
@@ -191,7 +191,7 @@ export default function RealTimeProjectsPage() {
           opacity: 0.9,
           lineHeight: 1.75,
         }}>
-          At PravinSoft, every course includes hands-on work on industry-grade projects across domains like banking, healthcare, e-commerce, and cloud infrastructure. You don't just learn the theory — you ship working software.
+          At PravinSoft, every course includes hands-on work on industry-grade projects across domains like banking, healthcare, e-commerce, and cloud infrastructure. You don&apos;t just learn the theory — you ship working software.
         </p>
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
           <button style={{
@@ -231,10 +231,10 @@ export default function RealTimeProjectsPage() {
           Why Real-Time Projects Are Non-Negotiable
         </h2>
         <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem", marginBottom: "1.25rem" }}>
-          The gap between knowing a technology and being able to use it professionally is wide — and classroom instruction alone cannot close it. Employers don't hire people who have watched tutorials; they hire people who have shipped code, debugged production issues, worked with databases, and delivered features under a deadline.
+          The gap between knowing a technology and being able to use it professionally is wide — and classroom instruction alone cannot close it. Employers don&apos;t hire people who have watched tutorials; they hire people who have shipped code, debugged production issues, worked with databases, and delivered features under a deadline.
         </p>
         <p style={{ color: "#475569", lineHeight: 1.85, fontSize: "1.05rem" }}>
-          PravinSoft's real-time project programme is built around exactly that. Every project is sourced from actual enterprise use cases across major industry verticals. You work through the full development lifecycle — from requirements gathering and system design to coding, testing, and cloud deployment — under the guidance of an industry mentor.
+          PravinSoft&apos;s real-time project programme is built around exactly that. Every project is sourced from actual enterprise use cases across major industry verticals. You work through the full development lifecycle — from requirements gathering and system design to coding, testing, and cloud deployment — under the guidance of an industry mentor.
         </p>
       </div>
 
@@ -410,7 +410,7 @@ export default function RealTimeProjectsPage() {
             lineHeight: 1.8,
             marginBottom: "1.25rem",
           }}>
-            "The real-time project I built at PravinSoft was the first thing every interviewer asked about. I walked three rounds of a product company interview almost entirely on the back of that single project."
+            &quot;The real-time project I built at PravinSoft was the first thing every interviewer asked about. I walked three rounds of a product company interview almost entirely on the back of that single project.&quot;
           </p>
           <div style={{ fontWeight: 700, color: "#581c87", fontSize: "0.95rem" }}>Rohan M. — Java Full Stack Graduate, now at Infosys</div>
         </div>

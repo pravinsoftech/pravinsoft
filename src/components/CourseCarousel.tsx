@@ -55,7 +55,6 @@ export default function CourseCarousel() {
                course_image_url={course.course_image_url}
                faculty_name="Expert Faculty"
                start_date={new Date().toISOString()}
-               time="10:00 AM"
                registration_url={`/courses/${course.id}`}
              />
            </div>

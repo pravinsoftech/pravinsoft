@@ -36,7 +36,7 @@ export default function BlogListing() {
                     {blogPosts.map((post) => (
                         <BlogCard
                             key={post.id}
-                            id={post.id}
+                            slug={`/blog/${post.id}`}
                             title={post.title}
                             excerpt={post.excerpt}
                             date={post.date}

@@ -28,7 +28,7 @@ export default function CoursePageTabs({ activeTab, onTabChange }: CoursePageTab
             paddingTop: '0.5rem',
             marginBottom: '2.5rem'
         }}>
-            <div style={{ 
+            <div className="tabs-container" style={{ 
                 display: 'flex', 
                 gap: '2.5rem', 
                 overflowX: 'auto', 
@@ -53,7 +53,8 @@ export default function CoursePageTabs({ activeTab, onTabChange }: CoursePageTab
                             borderRight: 'none',
                             cursor: 'pointer',
                             transition: 'all 0.2s',
-                            marginBottom: '-1px'
+                            marginBottom: '-1px',
+                            flexShrink: 0
                         }}
                     >
                         {tab.label}
@@ -61,8 +62,14 @@ export default function CoursePageTabs({ activeTab, onTabChange }: CoursePageTab
                 ))}
             </div>
             <style jsx>{`
-                div::-webkit-scrollbar {
+                .tabs-container::-webkit-scrollbar {
                     display: none;
+                }
+                @media (max-width: 768px) {
+                    .tabs-container {
+                        gap: 1.25rem !important;
+                        padding: 0 0.5rem;
+                    }
                 }
             `}</style>
         </div>

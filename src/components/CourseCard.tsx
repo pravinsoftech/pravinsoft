@@ -1,27 +1,21 @@
-import Link from 'next/link';
+import { useState } from 'react';
+import ShareModal from './ShareModal';
+import Image from 'next/image';
 
 interface CourseCardProps {
     id: string;
     course_name: string;
     faculty_name: string;
     start_date: string;
-    time: string;
-    material_url?: string;
     registration_url?: string;
     course_image_url?: string;
 }
-
-import { useState } from 'react';
-import ShareModal from './ShareModal';
-import Image from 'next/image';
 
 export default function CourseCard({
     id,
     course_name,
     faculty_name,
     start_date,
-    time,
-    material_url,
     registration_url,
     course_image_url
 }: CourseCardProps) {

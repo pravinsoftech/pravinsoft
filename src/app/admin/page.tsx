@@ -58,7 +58,7 @@ export default function AdminOverview() {
           <h1 className="gradient-text" style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>
             Dashboard Overview
           </h1>
-          <p style={{ color: 'var(--muted)' }}>Welcome back, Admin. Here's what's happening today.</p>
+          <p style={{ color: 'var(--muted)' }}>Welcome back, Admin. Here&apos;s what&apos;s happening today.</p>
         </div>
 
         {loading ? (

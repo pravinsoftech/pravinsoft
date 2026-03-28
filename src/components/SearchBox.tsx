@@ -31,7 +31,7 @@ export default function SearchBox() {
         setResults([]);
         return;
       }
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('courses')
         .select('id, course_name')
         .ilike('course_name', `%${query}%`)

@@ -3,9 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { supabase } from '@/lib/supabase';
+import { User } from '@supabase/supabase-js';
 
 export default function AdminProfile() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [fullName, setFullName] = useState('');
@@ -33,8 +34,9 @@ export default function AdminProfile() {
 
       if (error) throw error;
       setMessage({ text: 'Profile updated successfully!', type: 'success' });
-    } catch (err: any) {
-      setMessage({ text: err.message || 'Update failed', type: 'error' });
+    } catch (err) {
+      const error = err as Error;
+      setMessage({ text: error.message || 'Update failed', type: 'error' });
     } finally {
       setUpdating(false);
     }

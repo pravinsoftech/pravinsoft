@@ -12,6 +12,24 @@ async function getFullStackCourses() {
   return data || [];
 }
 
+interface Batch {
+  id: string;
+  training_nature: string;
+  start_date: string;
+  start_time: string;
+  course: { course_name: string } | { course_name: string }[] | null;
+  faculty: { name: string } | { name: string }[] | null;
+}
+
+interface NormalizedBatch {
+  id: string;
+  training_nature: string;
+  start_date: string;
+  start_time: string;
+  course: { course_name: string } | null;
+  faculty: { name: string } | null;
+}
+
 // Helper to fetch upcoming full-stack batches
 async function getUpcomingFullStackBatches() {
   const { data } = await supabase
@@ -26,15 +44,17 @@ async function getUpcomingFullStackBatches() {
     `)
     .order('start_date', { ascending: true });
 
+  const rawBatches = (data || []) as unknown as Batch[];
+
   // Normalize batches to ensure course and faculty are objects, not arrays
-  const normalizedBatches: any[] = (data || []).map((b: any) => ({
+  const normalizedBatches: NormalizedBatch[] = rawBatches.map((b: Batch) => ({
     ...b,
     course: Array.isArray(b.course) ? b.course[0] : b.course,
     faculty: Array.isArray(b.faculty) ? b.faculty[0] : b.faculty,
   }));
 
   // Filter batches for full-stack courses
-  const fullStackBatches = normalizedBatches.filter((batch: any) => {
+  const fullStackBatches = normalizedBatches.filter((batch: NormalizedBatch) => {
     const name = (batch.course?.course_name || '').toLowerCase();
     return name.includes('full stack') || name.includes('full-stack') || name.includes('testing');
   });
