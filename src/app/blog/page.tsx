@@ -12,7 +12,7 @@ const blogPosts = [
     {
         id: 'agentic-workflows-enterprise',
         title: 'Implementing Agentic Workflows in Enterprise Systems',
-        excerpt: 'How Pravinsoft AI is helping local industries in Pune adopt autonomous agent frameworks for operational efficiency.',
+        excerpt: 'How www.pravinsoft.in is helping local industries in Pune adopt autonomous agent frameworks for operational efficiency.',
         date: 'February 24, 2026'
     },
     {

@@ -17,7 +17,7 @@ export default function Terms() {
                 <section style={{ marginBottom: '2.5rem' }}>
                     <h2 style={{ color: 'white', marginBottom: '1rem', fontSize: '1.5rem' }}>2. Intellectual Property</h2>
                     <p>
-                        All course materials, code repositories, and proprietary technical methodologies provided by Pravinsoft AI are the exclusive intellectual property of the Institute. Unauthorised distribution or commercial use is strictly prohibited and shall be prosecuted under the relevant Indian statutes.
+                        All course materials, code repositories, and proprietary technical methodologies provided by www.pravinsoft.in are the exclusive intellectual property of the Institute. Unauthorised distribution or commercial use is strictly prohibited and shall be prosecuted under the relevant Indian statutes.
                     </p>
                 </section>
 

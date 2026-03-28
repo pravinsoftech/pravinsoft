@@ -7,7 +7,7 @@ import RecentBatchCard from "@/components/RecentBatchCard";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.pravinsoft.in'),
-  title: "Upgrade AI Skills | Pravinsoft Technologies LLP",
+  title: "www.pravinsoft.in | Pravinsoft Technologies LLP",
   description: "Enhance your AI skills for the evolving job market of 2026. Learn AGI development, prompt engineering, and multimodal AI systems at our Hinjewadi, Pune center.",
   icons: {
     icon: "/ai-skill.ico",

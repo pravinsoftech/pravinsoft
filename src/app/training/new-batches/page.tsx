@@ -4,7 +4,7 @@ import type { UpcomingBatchRaw, UpcomingBatchRow } from "./types";
 import { UpcomingBatchesTable } from "./UpcomingBatchesTable";
 
 export const metadata: Metadata = {
-  title: "New Batches | Pravinsoft AI",
+  title: "New Batches | www.pravinsoft.in",
   description:
     "Explore our upcoming batches for various tech and AI courses at Pravinsoft Technologies LLP.",
 };

@@ -15,7 +15,7 @@ export default function Disclaimer() {
                 <section style={{ marginBottom: '2.5rem' }}>
                     <h2 style={{ color: 'white', marginBottom: '1rem', fontSize: '1.5rem' }}>Professional Liability</h2>
                     <p>
-                        AI and Machine Learning are rapidly evolving fields. Pravinsoft AI shall not be held liable for any professional outcome or technical implementation decisions made by students based on the training received. We do not guarantee employment or specific career advancement.
+                        AI and Machine Learning are rapidly evolving fields. www.pravinsoft.in shall not be held liable for any professional outcome or technical implementation decisions made by students based on the training received. We do not guarantee employment or specific career advancement.
                     </p>
                 </section>
 

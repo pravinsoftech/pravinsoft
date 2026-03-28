@@ -116,7 +116,7 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               className="glass"
               style={{ padding: '0.75rem', color: 'var(--foreground)' }}
-              placeholder="you@example.com"
+              placeholder="info@pravinsoft.in"
               required
             />
           </div>

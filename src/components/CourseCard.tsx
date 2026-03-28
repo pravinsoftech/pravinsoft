@@ -20,7 +20,7 @@ export default function CourseCard({
     course_image_url
 }: CourseCardProps) {
     const [isShareOpen, setIsShareOpen] = useState(false);
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://upgradeaiskills.com';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.pravinsoft.in';
     const courseUrl = `${origin}/courses/${id}`;
 
     return (

@@ -8,7 +8,7 @@ export default function CookiesPolicy() {
                 <section style={{ marginBottom: '2.5rem' }}>
                     <h2 style={{ color: 'var(--foreground)', marginBottom: '1rem', fontSize: '1.5rem' }}>What Are Cookies?</h2>
                     <p>
-                        Cookies are small text files stored on your device that help us improve your browsing experience. At Pravinsoft AI, we use them to understand how our technical content is accessed and to provide personalised platform features.
+                        Cookies are small text files stored on your device that help us improve your browsing experience. At www.pravinsoft.in, we use them to understand how our technical content is accessed and to provide personalised platform features.
                     </p>
                 </section>
 

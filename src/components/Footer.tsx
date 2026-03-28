@@ -35,7 +35,7 @@ export default function Footer() {
             }}>
                 <div className="container footer-grid" style={{ marginBottom: '4rem' }}>
                     <div>
-                        <h4 className="gradient-text" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 700 }}>Pravinsoft AI</h4>
+                        <h4 className="gradient-text" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 700 }}>www.pravinsoft.in</h4>
                         <p style={{ color: '#71717a', fontSize: '0.9rem', lineHeight: 1.6 }}>
                             Pravinsoft Technologies LLP is a premier institute for AI and advanced technology training. Located in the heart of Hinjewadi IT Park, Pune.
                         </p>
