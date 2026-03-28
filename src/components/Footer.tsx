@@ -6,16 +6,15 @@ export default function Footer() {
             marginTop: 'auto'
         }}>
             {/* CTA Section */}
-            <div style={{
+            <div className="section-padding" style={{
                 background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1))',
-                padding: '4rem 0',
                 borderTop: '1px solid var(--glass-border)',
                 borderBottom: '1px solid var(--glass-border)',
                 textAlign: 'center'
             }}>
                 <div className="container">
-                    <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '1rem' }} className="gradient-text">Ready to Upgrade Your Skills?</h2>
-                    <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: '1.1rem' }}>Join our upcoming batches or explore our comprehensive courses.</p>
+                    <h2 style={{ fontSize: 'clamp(1.5rem, 6vw, 2rem)', fontWeight: 800, marginBottom: '1rem' }} className="gradient-text">Ready to Upgrade Your Skills?</h2>
+                    <p style={{ color: 'var(--muted)', marginBottom: '2rem', fontSize: 'clamp(0.9rem, 4vw, 1.1rem)' }}>Join our upcoming batches or explore our comprehensive courses.</p>
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                         <Link href="/contact" className="btn-primary">Join Now</Link>
                         <Link href="/courses" style={{
@@ -31,16 +30,10 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div style={{
-                padding: '4rem 0 2rem',
+            <div className="section-padding-large" style={{
                 background: 'var(--background)'
             }}>
-                <div className="container" style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                    gap: '3rem',
-                    marginBottom: '4rem'
-                }}>
+                <div className="container footer-grid" style={{ marginBottom: '4rem' }}>
                     <div>
                         <h4 className="gradient-text" style={{ fontSize: '1.2rem', marginBottom: '1.5rem', fontWeight: 700 }}>Pravinsoft AI</h4>
                         <p style={{ color: '#71717a', fontSize: '0.9rem', lineHeight: 1.6 }}>
@@ -75,7 +68,8 @@ export default function Footer() {
                 <div className="container" style={{ textAlign: 'center', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)' }}>
                     <p style={{ color: '#71717a', fontSize: '0.8rem' }}>
                         &copy; {new Date().getFullYear()} Pravinsoft Technologies LLP. All Rights Reserved. <br />
-                        An ISO Certified Technical Training Institute. Hinjewadi, Pune.
+                        An ISO Certified Technical Training Institute. Hinjewadi, Pune. <br />
+                        Website designed and maintain by <a href="http://www.saltymediaproduction.com" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'none' }}>Salty Media Production</a>.
                     </p>
                 </div>
             </div>

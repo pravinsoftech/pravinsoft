@@ -80,26 +80,19 @@ export default function CoursesGrid({ variant, title, subtitle }: CoursesGridPro
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="container" style={{ padding: '4rem 2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 300px', gap: '3rem', alignItems: 'start' }}>
+      <div className="container" style={{ padding: '2rem 1rem' }}>
+        <div className="course-layout-grid">
           <div>
             {loading ? (
               <p style={{ color: 'var(--muted)' }}>Loading courses...</p>
             ) : (
-              <div
-                className="courses-list-grid"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(4, 1fr)',
-                  gap: '1.5rem',
-                }}
-              >
+              <div className="courses-2-col-mobile">
                 {filteredCourses.map((course) => (
                   <CourseCard
                     key={course.id}
                     id={course.id}
                     course_name={course.course_name}
-                    faculty_name={course.faculty_name}
+                    faculty_name={variant === 'all' ? course.faculty_name : (course.faculty?.name || course.faculty_name || 'Academic Team')}
                     start_date={course.start_date}
                     time={course.time}
                     material_url={course.material_url}
@@ -115,20 +108,8 @@ export default function CoursesGrid({ variant, title, subtitle }: CoursesGridPro
       </div>
 
       <style jsx>{`
-        @media (max-width: 1100px) {
-          .courses-list-grid {
-            grid-template-columns: repeat(3, 1fr) !important;
-          }
-        }
-        @media (max-width: 850px) {
-          .courses-list-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 580px) {
-          .courses-list-grid {
-            grid-template-columns: 1fr !important;
-          }
+        .section-container {
+            scroll-margin-top: 160px;
         }
       `}</style>
     </main>

@@ -12,13 +12,13 @@ export default function Home() {
             <CourseCarousel />
 
             {/* Key Learning Advantages Section */}
-            <section id="skills" style={{ padding: "6rem 0", background: '#ffffffff' }}>
+            <section id="skills" className="section-padding" style={{ background: '#ffffffff' }}>
                 <div className="container">
                     <h2
                         style={{
-                            fontSize: "2.2rem",
+                            fontSize: "clamp(1.5rem, 6vw, 2.2rem)",
                             fontWeight: 800,
-                            marginBottom: "3.5rem",
+                            marginBottom: "2.5rem",
                             textAlign: "center",
                             color: '#1e293b'
                         }}
@@ -29,7 +29,7 @@ export default function Home() {
                     <div
                         style={{
                             display: "grid",
-                            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
                             gap: "1.5rem",
                         }}
                     >
@@ -114,10 +114,10 @@ export default function Home() {
             </section>
 
             {/* Training Services Section */}
-            <section style={{ padding: "6rem 0", background: 'white' }}>
+            <section className="section-padding" style={{ background: 'white' }}>
                 <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1e293b' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 7vw, 2.5rem)', fontWeight: 800, color: '#1e293b' }}>
                             Our <span style={{ color: '#06b6d4' }}>Training</span> Services
                         </h2>
                         <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>From Basic to Advanced...</p>
@@ -128,7 +128,7 @@ export default function Home() {
 
                     <div style={{
                         display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                         border: '1px solid #e2e8f0',
                         borderRadius: '16px',
                         overflow: 'hidden'
@@ -150,7 +150,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex' }}>
+                        <div className="flex-responsive">
                             <div style={{ flex: 1, position: 'relative', minHeight: '300px' }}>
                                 <Image src="/images/Asset 9.svg" alt="Internships" fill style={{ objectFit: 'cover' }} />
                             </div>
@@ -173,7 +173,7 @@ export default function Home() {
                         </div>
 
                         {/* Row 2 */}
-                        <div style={{ display: 'flex', borderTop: '1px solid #e2e8f0' }}>
+                        <div className="flex-responsive" style={{ borderTop: '1px solid #e2e8f0' }}>
                             <div style={{ flex: 1, position: 'relative', minHeight: '300px' }}>
                                 <Image src="/images/Asset 10.svg" alt="Workshops" fill style={{ objectFit: 'cover' }} />
                             </div>
@@ -189,7 +189,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', borderTop: '1px solid #e2e8f0' }}>
+                        <div className="flex-responsive" style={{ borderTop: '1px solid #e2e8f0' }}>
                             <div style={{ flex: 1, position: 'relative', minHeight: '300px' }}>
                                 <Image src="/images/Asset 11.svg" alt="Weekend Training" fill style={{ objectFit: 'cover' }} />
                             </div>
@@ -225,8 +225,7 @@ export default function Home() {
             </section>
 
             {/* Our Values Section */}
-            <section style={{
-                padding: "8rem 0",
+            <section className="section-padding-large" style={{
                 background: '#020617',
                 color: 'white',
                 position: 'relative',
@@ -260,7 +259,7 @@ export default function Home() {
                         </span>
 
                         <h2 style={{
-                            fontSize: '3rem',
+                            fontSize: 'clamp(1.8rem, 8vw, 3rem)',
                             fontWeight: 800,
                             lineHeight: 1.1,
                             maxWidth: '1000px',
@@ -361,89 +360,78 @@ export default function Home() {
             </section>
 
             {/* Browse by Domains Section */}
-            <section style={{ padding: "6rem 0", background: '#f8fafc' }}>
+            <section className="section-padding" style={{ background: '#f8fafc' }}>
                 <div className="container" style={{ textAlign: 'center' }}>
-                    <div style={{ marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#1e293b' }}>
+                    <div style={{ marginBottom: '3rem' }}>
+                        <h2 style={{ fontSize: 'clamp(1.7rem, 7vw, 2.5rem)', fontWeight: 800, color: '#1e293b' }}>
                             Browse by <span style={{ color: '#06b6d4' }}>Domains</span>
                         </h2>
                         <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>Explore new and trending free online courses.</p>
                     </div>
 
                     <div style={{ position: 'relative', width: '100%' }}>
+                    <div className="domain-browse-scroll" style={{ position: 'relative', width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
                         <div style={{
-                            overflowX: 'auto',
-                            padding: '1rem 0.5rem 3rem',
+                            padding: '1rem 0.5rem 2rem',
                             display: 'flex',
-                            flexDirection: 'column',
-                            gap: '2rem',
-                            scrollbarWidth: 'none',
-                            msOverflowStyle: 'none'
+                            gap: '1.5rem',
+                            width: 'max-content'
                         }}>
-                            {/* Horizontal scrolling row with grid inside */}
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateRows: 'repeat(2, 1fr)',
-                                gridAutoFlow: 'column',
-                                gap: '2rem',
-                                width: 'max-content',
-                                padding: '0 1rem'
-                            }}>
-                                {[
-                                    { name: "DevOps...", icon: "∞", color: "#a855f7" },
-                                    { name: "Programming...", icon: "</>", color: "#14b8a6" },
-                                    { name: "Frameworks...", icon: "🔍", color: "#6366f1" },
-                                    { name: "Internships...", icon: "🎓", color: "#065f46" },
-                                    { name: "Full Stack...", icon: "🥞", color: "#8b5cf6" },
-                                    { name: "Mobile Technologies...", icon: "📱", color: "#22c55e" },
-                                    { name: "Web Development...", icon: "🌐", color: "#991b1b" },
-                                    { name: "Placement Assistance...", icon: "🤝", color: "#9333ea" },
-                                    { name: "DevSecOps...", icon: "🛡️", color: "#0891b2" },
-                                    { name: "Cloud Computing...", icon: "☁️", color: "#2563eb" },
-                                    { name: "AI & Data...", icon: "🤖", color: "#f59e0b" },
-                                    { name: "Cyber Security...", icon: "🔐", color: "#dc2626" },
-                                ].map((domain, i) => (
-                                    <div key={i} className="glass" style={{
-                                        width: '200px',
-                                        height: '220px',
-                                        background: 'white',
-                                        borderRadius: '20px',
+                            {[
+                                { name: "DevOps...", icon: "∞", color: "#a855f7" },
+                                { name: "Programming...", icon: "</>", color: "#14b8a6" },
+                                { name: "Frameworks...", icon: "🔍", color: "#6366f1" },
+                                { name: "Internships...", icon: "🎓", color: "#065f46" },
+                                { name: "Full Stack...", icon: "🥞", color: "#8b5cf6" },
+                                { name: "Mobile Technologies...", icon: "📱", color: "#22c55e" },
+                                { name: "Web Development...", icon: "🌐", color: "#991b1b" },
+                                { name: "Placement Assistance...", icon: "🤝", color: "#9333ea" },
+                                { name: "DevSecOps...", icon: "🛡️", color: "#0891b2" },
+                                { name: "Cloud Computing...", icon: "☁️", color: "#2563eb" },
+                                { name: "AI & Data...", icon: "🤖", color: "#f59e0b" },
+                                { name: "Cyber Security...", icon: "🔐", color: "#dc2626" },
+                            ].map((domain, i) => (
+                                <div key={i} className="glass" style={{
+                                    width: '180px',
+                                    height: '200px',
+                                    background: 'white',
+                                    borderRadius: '20px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '1rem',
+                                    boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+                                    border: '1px solid #f1f5f9',
+                                    flexShrink: 0
+                                }}>
+                                    <div style={{
+                                        width: '70px',
+                                        height: '70px',
+                                        background: domain.color,
+                                        borderRadius: '16px',
                                         display: 'flex',
-                                        flexDirection: 'column',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        gap: '1.5rem',
-                                        boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-                                        border: '1px solid #f1f5f9',
-                                        transition: 'all 0.3s ease'
+                                        fontSize: '1.8rem',
+                                        color: 'white',
+                                        boxShadow: `0 8px 16px ${domain.color}44`
                                     }}>
-                                        <div style={{
-                                            width: '80px',
-                                            height: '80px',
-                                            background: domain.color,
-                                            borderRadius: '16px',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            fontSize: '2rem',
-                                            color: 'white',
-                                            boxShadow: `0 8px 16px ${domain.color}44`
-                                        }}>
-                                            {domain.icon}
-                                        </div>
-                                        <span style={{
-                                            fontSize: '1rem',
-                                            fontWeight: 700,
-                                            color: '#1e293b',
-                                            textAlign: 'center',
-                                            padding: '0 1rem'
-                                        }}>
-                                            {domain.name}
-                                        </span>
+                                        {domain.icon}
                                     </div>
-                                ))}
-                            </div>
+                                    <span style={{
+                                        fontSize: '0.9rem',
+                                        fontWeight: 700,
+                                        color: '#1e293b',
+                                        textAlign: 'center',
+                                        padding: '0 1rem'
+                                    }}>
+                                        {domain.name}
+                                    </span>
+                                </div>
+                            ))}
                         </div>
+                    </div>
 
                         {/* Arrows placeholders as per image */}
                         <div style={{
@@ -506,16 +494,15 @@ export default function Home() {
             </section>
 
             {/* Corporate Software Training Section */}
-            <section style={{
-                padding: "6rem 0",
+            <section className="section-padding" style={{
                 background: '#1e293b',
                 color: 'white',
                 overflow: 'hidden'
             }}>
                 <div className="container">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '4rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
                         <div style={{ flex: '1', minWidth: '300px' }}>
-                            <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
+                            <h2 style={{ fontSize: 'clamp(1.7rem, 7vw, 2.5rem)', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.2 }}>
                                 <span style={{ color: '#06b6d4' }}>Corporate</span> Software Training
                             </h2>
                             <p style={{ color: '#94a3b8', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
@@ -584,12 +571,12 @@ export default function Home() {
                 </div>
 
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '4rem', alignItems: 'start' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', alignItems: 'start' }}>
 
                         {/* Header Area */}
-                        <div style={{ paddingTop: '2rem' }}>
-                            <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
-                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>PravinSost's</span> Students Placed in the Best Companies
+                        <div style={{ paddingTop: '1rem' }}>
+                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
+                                <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>PravinSoft's</span> Students Placed in the Best Companies
                             </h2>
 
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
@@ -772,13 +759,13 @@ export default function Home() {
             </section>
 
             {/* Hiring Partners Section */}
-            <section style={{ padding: "8rem 0", background: '#f8fafc', overflow: 'hidden', position: 'relative' }}>
+            <section className="section-padding-large" style={{ background: '#f8fafc', overflow: 'hidden', position: 'relative' }}>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '4rem', alignItems: 'center' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
 
                         {/* Header Area */}
                         <div>
-                            <h2 style={{ fontSize: '3.5rem', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
+                            <h2 style={{ fontSize: 'clamp(1.8rem, 8vw, 3.5rem)', fontWeight: 900, color: '#111827', lineHeight: 1.1, marginBottom: '2rem' }}>
                                 <span style={{ color: '#06b6d4', textDecoration: 'underline', textDecorationThickness: '4px', textUnderlineOffset: '8px' }}>Top MNC's</span> are our Hiring Partners
                             </h2>
 
@@ -805,10 +792,10 @@ export default function Home() {
                         {/* Partner Logos Grid */}
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(4, 1fr)',
-                            gap: '2rem',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+                            gap: '1.5rem',
                             background: 'white',
-                            padding: '3rem',
+                            padding: '2rem',
                             borderRadius: '24px',
                             boxShadow: '0 20px 50px rgba(0,0,0,0.05)'
                         }}>
@@ -868,8 +855,7 @@ export default function Home() {
             </section>
 
             {/* Placed Students Section */}
-            <section style={{
-                padding: "6rem 0",
+            <section className="section-padding" style={{
                 background: '#ffffffff',
                 backgroundImage: 'linear-gradient(135deg, rgba(255, 198, 55, 1) 5%, transparent 5%, transparent 5%, rgba(255, 198, 55, 1) 5%, rgba(255, 198, 55, 1) 5%, transparent 5%, transparent)',
                 backgroundSize: '60px 60px',
@@ -892,8 +878,8 @@ export default function Home() {
                 </div>
 
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#111827' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 7vw, 2.5rem)', fontWeight: 800, color: '#111827' }}>
                             Placed <span style={{ color: '#06b6d4' }}>Students</span>
                         </h2>
                         <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>
@@ -945,9 +931,9 @@ export default function Home() {
                         {/* Cards Grid */}
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(5, 1fr)',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                             gap: '1.5rem',
-                            rowGap: '3rem'
+                            rowGap: '2rem'
                         }}>
                             {[
                                 { name: "Debashis", role: "Java Developer", company: "Emagia Corporation", color: "#4989ffff" },
@@ -1068,7 +1054,7 @@ export default function Home() {
             </section>
 
             {/* Blogs Section */}
-            <section style={{ padding: "0 0 8rem", background: '#f8fafc', position: 'relative' }}>
+            <section className="section-padding-large" style={{ background: '#f8fafc', position: 'relative', paddingTop: 0 }}>
 
                 {/* Advisor Bar */}
                 <div style={{
@@ -1093,8 +1079,8 @@ export default function Home() {
                 </div>
 
                 <div className="container" style={{ position: 'relative' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                        <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#111827' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <h2 style={{ fontSize: 'clamp(1.8rem, 7vw, 2.5rem)', fontWeight: 800, color: '#111827' }}>
                             Our <span style={{ color: '#06b6d4' }}>Blogs</span>
                         </h2>
                         <p style={{ color: '#64748b', fontSize: '1rem', marginTop: '0.5rem' }}>
@@ -1148,7 +1134,7 @@ export default function Home() {
                         {/* Blog Cards Grid */}
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                             gap: '2rem',
                             rowGap: '2rem'
                         }}>

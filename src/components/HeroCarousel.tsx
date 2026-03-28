@@ -25,14 +25,15 @@ export default function HeroCarousel() {
     <section
       id="hero"
       style={{
-        minHeight: '100vh',
+        minHeight: '80vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '4rem',
+        paddingTop: '5rem',
+        paddingBottom: '3rem',
       }}
     >
       {/* Background images - non-stop loop */}
@@ -121,24 +122,27 @@ export default function HeroCarousel() {
         <h1
           className="gradient-text"
           style={{
-            fontSize: '4.2rem',
+            fontSize: 'clamp(1.8rem, 8vw, 3rem)',
             fontWeight: 800,
-            marginBottom: '1.5rem',
-            lineHeight: 1.1,
+            marginBottom: '1rem',
+            lineHeight: 1.2,
+            padding: '0 1rem',
           }}
         >
-
+          Master the Future of <br /> Technology with PravinSoft
         </h1>
 
         <p
           style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(0.9rem, 4vw, 1.25rem)',
             color: '#a1a1aa',
             maxWidth: '720px',
-            margin: '0 auto 2.5rem',
-            lineHeight: 1.7,
+            margin: '0 auto 2rem',
+            lineHeight: 1.6,
           }}
         >
+          Specialized and industry-recognized software training programs in Hinjewadi, Pune. 
+          Expert instruction, real-time projects, and 100% placement support to jumpstart your career.
         </p>
 
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

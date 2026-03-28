@@ -224,7 +224,7 @@ export default function CourseHero({
                                         <div style={{ color: '#1a367c', fontWeight: 800, fontSize: '14px' }}>CONGRATULATIONS</div>
                                         <div style={{ background: '#1a367c', color: 'white', padding: '2px 8px', borderRadius: '2px', fontWeight: 900, fontSize: '18px' }}>254</div>
                                     </div>
-                                    <div style={{ fontSize: '10px', fontWeight: 700 }}>Students Placed in November 2022</div>
+                                    <div style={{ fontSize: '10px', fontWeight: 700 }}>Students Placed in March 2026</div>
                                     
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(10, 1fr)', gap: '2px', width: '100%' }}>
                                         {[...Array(30)].map((_, i) => (
@@ -234,7 +234,7 @@ export default function CourseHero({
                                     
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                         <div style={{ fontSize: '10px', color: '#64748b' }}>Average Pkg: <span style={{ color: '#1a367c', fontWeight: 700 }}>3-4 LPA</span></div>
-                                        <div style={{ color: '#ef4444', fontWeight: 800, fontSize: '12px' }}>NARESH <span style={{ color: '#ffd700' }}>i</span></div>
+                                        <div style={{ color: '#ef4444', fontWeight: 800, fontSize: '12px' }}>PRAVIN <span style={{ color: '#06b6d4' }}>SOFT</span></div>
                                     </div>
                                 </div>
 

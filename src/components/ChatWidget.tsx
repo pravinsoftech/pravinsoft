@@ -47,8 +47,9 @@ export default function ChatWidget() {
     fetchData();
   }, []);
 
-  // Auto-open lead capture after 5 seconds
+  // Auto-open lead capture after 5 seconds - disabled on mobile
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     const timer = setTimeout(() => {
       setIsLeadOpen(true);
     }, 5000);
@@ -102,13 +103,26 @@ export default function ChatWidget() {
 
   return (
     <>
-      <div style={{ position: 'fixed', bottom: '20px', right: '25px', display: 'flex', flexDirection: 'column', gap: '15px', zIndex: 9999 }}>
+      <div className="floating-widgets" style={{ position: 'fixed', bottom: '15px', right: '15px', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 9999 }}>
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .widget-btn {
+              width: 42px !important;
+              height: 42px !important;
+            }
+            .widget-btn img {
+              width: 24px !important;
+              height: 24px !important;
+            }
+          }
+        `}</style>
 
         {/* WhatsApp Icon (Top) */}
         <a
           href="https://wa.me/919209072989?text=I%20want%20to%20know%20more%20about%20the%20courses"
           target="_blank"
           rel="noopener noreferrer"
+          className="widget-btn"
           style={{
             width: '60px',
             height: '60px',
@@ -131,6 +145,7 @@ export default function ChatWidget() {
         {/* Lead Capture Icon (Middle) */}
         <button
           onClick={() => { setIsLeadOpen(!isLeadOpen); setIsFaqOpen(false); }}
+          className="widget-btn"
           style={{
             width: '60px',
             height: '60px',
@@ -155,6 +170,7 @@ export default function ChatWidget() {
         {/* FAQ Icon (Bottom) */}
         <button
           onClick={() => { setIsFaqOpen(!isFaqOpen); setIsLeadOpen(false); }}
+          className="widget-btn"
           style={{
             width: '60px',
             height: '60px',
@@ -180,17 +196,19 @@ export default function ChatWidget() {
       {/* Lead Capture Popup */}
       {isLeadOpen && (
         <div
-          className="glass"
           style={{
             position: 'fixed',
-            bottom: '100px',
-            right: '95px',
-            width: '320px',
+            bottom: '20px',
+            right: '20px',
+            width: 'calc(100vw - 40px)',
+            maxWidth: '350px',
             borderRadius: '12px',
             padding: '1.5rem',
-            zIndex: 9999,
-            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-            border: '1px solid var(--glass-border)',
+            zIndex: 10000,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+            background: '#ffffff',
+            color: '#1e293b',
+            border: '1px solid #e2e8f0',
             animation: 'fadeIn 0.2s ease-out'
           }}
         >
@@ -207,7 +225,7 @@ export default function ChatWidget() {
               required
               value={formData.name}
               onChange={handleChange}
-              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', color: '#1e293b' }}
             />
             <input
               type="tel"
@@ -216,7 +234,7 @@ export default function ChatWidget() {
               required
               value={formData.mobile}
               onChange={handleChange}
-              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', color: '#1e293b' }}
             />
             <input
               type="email"
@@ -225,7 +243,7 @@ export default function ChatWidget() {
               required
               value={formData.email}
               onChange={handleChange}
-              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)' }}
+              style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', color: '#1e293b' }}
             />
             <select
               name="course_interest"
@@ -262,18 +280,20 @@ export default function ChatWidget() {
       {/* FAQ Popup */}
       {isFaqOpen && (
         <div
-          className="glass"
           style={{
             position: 'fixed',
-            bottom: '25px',
-            right: '95px',
-            width: '320px',
-            height: '400px',
+            bottom: '20px',
+            right: '20px',
+            width: 'calc(100vw - 40px)',
+            maxWidth: '350px',
+            height: '450px',
             borderRadius: '12px',
             padding: '1.5rem',
-            zIndex: 9999,
-            boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-            border: '1px solid var(--glass-border)',
+            zIndex: 10000,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+            background: '#ffffff',
+            color: '#1e293b',
+            border: '1px solid #e2e8f0',
             animation: 'fadeIn 0.2s ease-out',
             display: 'flex',
             flexDirection: 'column'
@@ -293,7 +313,7 @@ export default function ChatWidget() {
                 >
                   ← Back to questions
                 </button>
-                <div style={{ background: 'var(--background)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--glass-border)' }}>
+                <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
                   <h4 style={{ margin: '0 0 0.5rem 0', fontSize: '0.95rem', color: 'var(--foreground)' }}>Q: {selectedFaq.question}</h4>
                   <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--muted)', lineHeight: '1.5' }}>A: {selectedFaq.answer}</p>
                 </div>
@@ -305,7 +325,7 @@ export default function ChatWidget() {
                   placeholder="Ask a question..."
                   value={faqSearch}
                   onChange={(e) => setFaqSearch(e.target.value)}
-                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid var(--glass-border)', background: 'var(--background)', color: 'var(--foreground)', marginBottom: '0.5rem' }}
+                  style={{ width: '100%', padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1', background: '#f8fafc', color: '#1e293b', marginBottom: '0.5rem' }}
                 />
 
                 {filteredFaqs.length === 0 ? (
@@ -316,18 +336,19 @@ export default function ChatWidget() {
                       key={faq.id}
                       onClick={() => setSelectedFaq(faq)}
                       style={{
-                        background: 'var(--background)',
-                        border: '1px solid var(--glass-border)',
-                        color: 'var(--foreground)',
+                        background: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        color: '#1e293b',
                         padding: '0.75rem',
                         borderRadius: '6px',
                         textAlign: 'left',
                         cursor: 'pointer',
                         fontSize: '0.85rem',
-                        transition: 'background 0.2s'
+                        transition: 'background 0.2s',
+                        width: '100%'
                       }}
-                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'}
-                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--background)'}
+                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f1f5f9'}
+                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
                     >
                       {faq.question}
                     </button>

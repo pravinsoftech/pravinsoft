@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import CourseHero from '@/components/CourseHero';
-import SoftwareTestingContent from '@/components/SoftwareTestingContent';
+import FullStackSoftwareTestingOnlineTraining from '@/components/FullStackSoftwareTestingOnlineTraining';
 import CourseSidebar from '@/components/CourseSidebar';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -34,7 +34,7 @@ export default function SoftwareTestingPage() {
       {/* Detailed Content Section with Tabs and Sidebar Form */}
       <section style={{ padding: '2rem 0 6rem', background: '#fff' }}>
         <div className="container course-layout-grid">
-          <SoftwareTestingContent />
+          <FullStackSoftwareTestingOnlineTraining />
           <CourseSidebar />
         </div>
       </section>

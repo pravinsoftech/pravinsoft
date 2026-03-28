@@ -1,4 +1,4 @@
-import HeroCarousel from '@/components/HeroCarousel';
+import CourseHero from '@/components/CourseHero';
 import FullStackPageClient from '@/components/FullStackPageClient';
 import { supabase } from '@/lib/supabase';
 
@@ -36,7 +36,7 @@ async function getUpcomingFullStackBatches() {
   // Filter batches for full-stack courses
   const fullStackBatches = normalizedBatches.filter((batch: any) => {
     const name = (batch.course?.course_name || '').toLowerCase();
-    return name.includes('full stack') || name.includes('full-stack');
+    return name.includes('full stack') || name.includes('full-stack') || name.includes('testing');
   });
 
   return fullStackBatches;
@@ -48,10 +48,32 @@ export default async function FullStackCoursesPage() {
     getUpcomingFullStackBatches()
   ]);
 
+  // Ensure 'Full Stack Software Testing' is displayed
+  const testingCourseId = 'full-stack-software-testing-online-training';
+  const hasTestingCourse = courses.some(c => c.id === testingCourseId || c.course_name === 'Full Stack Software Testing');
+  
+  const finalCourses = [...courses];
+  if (!hasTestingCourse) {
+    finalCourses.push({
+      id: testingCourseId,
+      course_name: 'Full Stack Software Testing',
+      course_image_url: '/logo.jpg', // fallback to logo
+    });
+  }
+
   return (
     <main style={{ background: '#f8fafc', minHeight: '100vh', paddingBottom: '4rem' }}>
-      <HeroCarousel />
-      <FullStackPageClient courses={courses} batches={batches} />
+      <CourseHero 
+        title="Full Stack Development"
+        subtitle="Master modern web technologies from frontend to backend"
+        breadcrumbs={[
+          { label: 'Full Stack Development' }
+        ]}
+        bannerBg="#0f172a"
+        duration="6 Months"
+        fee="Contact Us"
+      />
+      <FullStackPageClient courses={finalCourses} batches={batches} />
     </main>
   );
 }

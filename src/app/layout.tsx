@@ -33,30 +33,22 @@ export default function RootLayout({
         <ThemeProvider>
           {/* Fixed Contact Stripe */}
           <div
+            className="contact-bar"
             style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "36px",
               background: "#050505",
-              borderBottom: "1px solid var(--glass-border)",
+              color: "#a1a1aa",
+              zIndex: 9999,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              padding: "0 2rem",
-              fontSize: "0.85rem",
-              color: "#a1a1aa",
-              zIndex: 9999,
             }}
           >
-            
-            <div style={{ display: "flex", gap: "1.5rem" }}>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <span className="contact-label">Contact us:</span>
               <span>📞 +91 92090 72989</span>
               <span>📞 +91 92090 72990</span>
             </div>
-<div className="sm:block">✉️ pravinsoftonlinetraining@gmail.com</div>
-            
+            <div className="hidden sm-flex">✉️ pravinsoftonlinetraining@gmail.com</div>
           </div>
           <Navbar />
           <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "106px", overflowX: 'clip' }}>

@@ -31,10 +31,6 @@ export default function FullStackPageClient({ courses, batches }: Props) {
 
     return (
         <div className="container" style={{ marginTop: '2rem' }}>
-            <h1 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#1e293b', marginBottom: '1.25rem' }}>
-                Full Stack Courses
-            </h1>
-
             <FullStackTabs />
 
             <div id="courses" style={{ marginBottom: '6rem' }}>
@@ -42,12 +38,8 @@ export default function FullStackPageClient({ courses, batches }: Props) {
                     Full stack Courses
                 </h2>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: '1.5rem', alignItems: 'start' }}>
-                    <div style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(4, 1fr)',
-                        gap: '1rem'
-                    }}>
+                <div className="course-layout-grid">
+                    <div className="full-stack-courses-grid">
                         {courses.map((course) => {
                             const courseBatch = batches.find(b => b.course?.course_name === course.course_name);
                             return (
@@ -65,7 +57,7 @@ export default function FullStackPageClient({ courses, batches }: Props) {
                         })}
                     </div>
 
-                    <div style={{ position: 'sticky', top: '5rem' }}>
+                    <div className="desktop-only" style={{ position: 'sticky', top: '5rem' }}>
                         <RegistrationForm />
                     </div>
                 </div>
@@ -114,7 +106,7 @@ export default function FullStackPageClient({ courses, batches }: Props) {
                 <h2 style={{ fontSize: '2rem', fontWeight: 800, textAlign: 'center', marginBottom: '3rem' }}>
                     Our Certificate
                 </h2>
-                <div className="glass" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', padding: '3rem', background: 'white', border: '1px solid #e2e8f0', borderRadius: '16px', alignItems: 'center' }}>
+                <div className="glass certificate-section-grid">
                     <div style={{ width: '100%', aspectRatio: '1/1', background: '#f1f5f9', borderRadius: '8px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <p style={{ color: '#94a3b8' }}>[Certificate Image Placeholder]</p>
                     </div>
@@ -207,6 +199,10 @@ export default function FullStackPageClient({ courses, batches }: Props) {
             >
                 Enroll Now
             </a>
+            <div className="mobile-only" style={{ marginTop: '4rem' }}>
+                <RegistrationForm />
+            </div>
+
             <EnrollmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
