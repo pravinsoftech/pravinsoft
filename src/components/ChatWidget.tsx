@@ -32,6 +32,37 @@ export default function ChatWidget() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const [whatsappLink, setWhatsappLink] = useState('https://wa.me/919209072989?text=I%20want%20to%20know%20more%20about%20the%20courses');
+
+  useEffect(() => {
+    const getWhatsAppLink = () => {
+      const numbers = ['919209072989', '919209072990'];
+      const text = encodeURIComponent('I want to know more about the courses');
+      
+      // Calculate IST time (UTC+5:30)
+      const now = new Date();
+      const istTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+      const hours = istTime.getHours();
+      
+      // Indian Day Time: 9 AM to 9 PM
+      const isDayTime = hours >= 9 && hours < 21;
+      
+      const random = Math.random();
+      let selectedNumber;
+
+      if (isDayTime) {
+        // 70% chance for primary number during day
+        selectedNumber = random < 0.7 ? numbers[0] : numbers[1];
+      } else {
+        // 70% chance for secondary number during night
+        selectedNumber = random < 0.7 ? numbers[1] : numbers[0];
+      }
+      
+      return `https://wa.me/${selectedNumber}?text=${text}`;
+    };
+
+    setWhatsappLink(getWhatsAppLink());
+  }, []);
 
   // Fetch initial data
   useEffect(() => {
@@ -120,7 +151,7 @@ export default function ChatWidget() {
 
         {/* WhatsApp Icon (Top) */}
         <a
-          href="https://wa.me/919209072989?text=I%20want%20to%20know%20more%20about%20the%20courses"
+          href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
           className="widget-btn"

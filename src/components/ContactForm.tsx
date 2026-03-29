@@ -7,6 +7,7 @@ export default function ContactForm() {
     const [formData, setFormData] = useState({
         full_name: '',
         email: '',
+        phone: '',
         subject: '',
         message: ''
     });
@@ -26,7 +27,7 @@ export default function ContactForm() {
             if (error) throw error;
 
             setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
-            setFormData({ full_name: '', email: '', subject: '', message: '' });
+            setFormData({ full_name: '', email: '', phone: '', subject: '', message: '' });
         } catch (err) {
             const error = err as Error;
             setStatus({ type: 'error', message: error.message || 'Something went wrong. Please try again later.' });
@@ -73,6 +74,21 @@ export default function ContactForm() {
                     />
                 </div>
             </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Mobile Number</label>
+                <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="glass"
+                    style={{ padding: '0.75rem', color: 'var(--foreground)' }}
+                    placeholder="+91 XXXXX XXXXX"
+                    required
+                />
+            </div>
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <label style={{ fontSize: '0.9rem', color: 'var(--muted)' }}>Subject</label>
                 <input

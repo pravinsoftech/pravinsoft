@@ -134,8 +134,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }}
         className="sidebar-desktop"
       >
-        <div style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--foreground)', marginBottom: '1rem' }}>
-          ADMIN <span className="gradient-text">PANEL</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+          <div style={{ fontWeight: 800, fontSize: '1.2rem', color: 'var(--foreground)' }}>
+            ADMIN <span className="gradient-text">PANEL</span>
+          </div>
         </div>
 
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
@@ -167,9 +169,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           style={{
             padding: '0.85rem 1rem',
             borderRadius: '12px',
-            background: 'rgba(239, 68, 68, 0.08)',
+            background: 'rgba(239, 68, 68, 0.1)',
             color: '#ef4444',
-            border: '1px solid rgba(239, 68, 68, 0.15)',
+            border: '1px solid rgba(239, 68, 68, 0.2)',
             cursor: 'pointer',
             fontWeight: 700,
             transition: 'all 0.3s ease',
@@ -177,14 +179,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '10px'
+            gap: '10px',
+            width: '100%'
           }}
           onMouseOver={(e) => {
-            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.15)';
+            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.2)';
             e.currentTarget.style.transform = 'translateY(-2px)';
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.08)';
+            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
@@ -208,7 +211,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           }
           .main-content-responsive {
             margin-left: 0 !important;
-            padding: 120px 1.5rem 2rem !important; /* Offset for double-row mobile header */
+            padding: 100px 1.5rem 2rem !important; /* Adjusted offset for fixed mobile header */
           }
           .mobile-only-flex {
             display: flex !important;
@@ -217,6 +220,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         @media (min-width: 769px) {
           .main-content-responsive {
             margin-left: 260px !important;
+            padding: 2rem 3rem !important;
+          }
+          .sidebar-desktop {
+            top: 0;
+            left: 0;
           }
         }
       `}</style>

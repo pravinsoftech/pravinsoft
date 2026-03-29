@@ -433,45 +433,6 @@ export default function Home() {
                         </div>
                     </div>
 
-                        {/* Arrows placeholders as per image */}
-                        <div style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '-1rem',
-                            transform: 'translateY(-50%)',
-                            width: '40px',
-                            height: '40px',
-                            background: '#94a3b8',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: 'white',
-                            cursor: 'pointer',
-                            zIndex: 10,
-                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-                        }}>
-                            ←
-                        </div>
-                        <div style={{
-                            position: 'absolute',
-                            top: '50%',
-                            right: '-1rem',
-                            transform: 'translateY(-50%)',
-                            width: '40px',
-                            height: '40px',
-                            background: '#3b82f6',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: 'white',
-                            cursor: 'pointer',
-                            zIndex: 10,
-                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-                        }}>
-                            →
-                        </div>
                     </div>
 
                     <div style={{ marginTop: '3rem' }}>

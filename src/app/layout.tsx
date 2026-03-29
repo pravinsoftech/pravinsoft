@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 export default function RootLayout({
   children,
@@ -28,35 +29,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        
+      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: 'var(--background)' }}>
         <ThemeProvider>
-          {/* Fixed Contact Stripe */}
-          <div
-            className="contact-bar"
-            style={{
-              background: "#050505",
-              color: "#a1a1aa",
-              zIndex: 9999,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <div style={{ display: "flex", gap: "1rem" }}>
-              <span className="contact-label">Contact us:</span>
-              <span>📞 +91 92090 72989</span>
-              <span>📞 +91 92090 72990</span>
-            </div>
-            <div className="hidden sm-flex">✉️ pravinsoftonlinetraining@gmail.com</div>
-          </div>
-          <Navbar />
-          <div style={{ flex: 1, paddingBottom: '4rem', marginTop: "106px", overflowX: 'clip' }}>
+          <ConditionalLayout>
             {children}
-          </div>
-          <Footer />
-          <ChatWidget />
-          <RecentBatchCard />
+          </ConditionalLayout>
         </ThemeProvider>
       </body>
     </html>

@@ -76,7 +76,7 @@ export default function AdminOverview() {
           <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Quick Actions</h2>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button className="btn-primary" onClick={() => window.location.href = '/admin/courses'}>Add New Course</button>
-            <button className="btn-primary" style={{ background: 'var(--glass-bg)' }} onClick={() => window.location.href = '/admin/faculty'}>Manage Faculty</button>
+            <button className="btn-primary" onClick={() => window.location.href = '/admin/faculty'}>Manage Faculty</button>
           </div>
         </div>
       </div>
